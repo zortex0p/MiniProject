@@ -1,0 +1,23 @@
+Flask==3.0.0
+Flask-CORS==4.0.0
+python-dotenv==1.0.0
+gunicorn==21.2.0
+
+# NLP and ML
+transformers==4.36.2
+torch==2.1.2
+
+# PDF Processing
+pdfplumber==0.10.3
+
+# LLM Integration
+anthropic==0.21.3
+
+# Database
+SQLAlchemy==2.0.23
+psycopg2-binary==2.9.9
+
+# Utilities
+python-multipart==0.0.6
+numpy==1.24.3
+regex==2023.12.25

@@ -1,0 +1,106 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+.venv
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# Flask
+instance/
+.webassets-cache
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+legal_documents.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Node (if using for frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Docker
+*.log
+.dockerignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+/backend/.env
+/backend/legal_documents.db
+/backend/instance/
+/frontend/.env
+/frontend/node_modules/
+
+# Credentials and secrets
+*.pem
+*.key
+secrets.json
+
+# Cache
+.cache/
+*.cache
+
+# Temp files
+*.tmp
+*.temp
+.tmp/
+
+# Model cache
+.cache/torch/
+.cache/huggingface/
+
+# Logs
+logs/
+*.log
