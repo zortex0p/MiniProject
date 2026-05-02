@@ -1087,12 +1087,1148 @@ const TRANSLATIONS = {
 
 let currentLanguage = 'en';
 
+const UI_COPY = {
+  en: {
+    nav_features: 'Features',
+    nav_how: 'How it works',
+    nav_analyzer: 'Analyzer',
+    nav_tech: 'Tech stack',
+    nav_cta: 'Try it free ->',
+    hero_title: 'Understand <em>any</em> legal document in seconds',
+    hero_subtitle: 'Upload contracts, rental agreements, or terms of service - get plain English explanations and risk flags instantly.',
+    hero_primary: 'Analyze a document ->',
+    hero_secondary: 'See how it works',
+    stat_accuracy: 'Clause detection accuracy',
+    stat_time: 'Average analysis time',
+    stat_types: 'Document types supported',
+    features_label: 'What we do',
+    features_title: 'Everything you need to<br>sign with confidence',
+    features_subtitle: "Every adult has signed something they did not understand. LexPlain changes that - instantly and for free.",
+    feature_clause_title: 'Clause extraction',
+    feature_clause_body: 'Automatically identifies key clauses - termination, liability, payment, non-compete, arbitration, data rights, and more.',
+    feature_plain_title: 'Plain English translation',
+    feature_plain_body: 'Every complex clause is rewritten in simple, human-readable language so you actually understand what you are agreeing to.',
+    feature_risk_title: 'Risk flagging',
+    feature_risk_body: 'Each clause is scored High, Medium, or Low risk based on how favorable it is to you - the signer.',
+    feature_score_title: 'Favorability score',
+    feature_score_body: 'A 0-100 score tells you at a glance how balanced the document is - green means safe, red means danger.',
+    feature_tips_title: 'Negotiation tips',
+    feature_tips_body: 'Specific, actionable advice on which clauses to push back on and how to approach the conversation.',
+    feature_instant_title: 'Instant analysis',
+    feature_instant_body: 'No signup required. Paste your text or upload a file and get results in under 10 seconds.',
+    process_label: 'The process',
+    process_title: 'How it works',
+    process_subtitle: 'Three steps from upload to understanding.',
+    step1_title: 'Upload or paste',
+    step1_body: 'Upload a PDF, DOCX, or paste any contract text directly into the analyzer.',
+    step2_title: 'AI analysis',
+    step2_body: 'Our model extracts clauses and scores each one for risk.',
+    step3_title: 'Read the report',
+    step3_body: 'Get a full plain-English breakdown with risk scores, clause summaries, and negotiation tips.',
+    step4_title: 'Sign with confidence',
+    step4_body: 'Know exactly what you are agreeing to.',
+    demo_label: 'Live demo',
+    analyzer_title: 'Analyze your document',
+    analyzer_subtitle: 'Paste any contract text below and hit analyze. Try one of the sample prompts to see it in action.',
+    app_title: 'LexPlain Analyzer',
+    app_subtitle: 'Powered by legal text analysis',
+    placeholder: 'Paste your rental agreement, terms of service, employment contract, or any legal document here...',
+    sample_rental: 'Rental agreement',
+    sample_employment: 'Employment contract',
+    sample_tos: 'Terms of service',
+    sample_nda: 'NDA',
+    upload_title: 'Drop your contract here',
+    upload_body: 'Supports PDF, DOCX, TXT files up to 10MB',
+    choose_file: 'Choose file',
+    loading_title: 'Analyzing your document...',
+    loading_body: 'Extracting clauses, scoring risk, generating plain English summaries',
+    loading_parse: 'Parsing text',
+    loading_extract: 'Extracting clauses',
+    loading_score: 'Scoring risk',
+    loading_summary: 'Generating summaries',
+    score_pending: 'Analyzing...',
+    score_suffix: '/ 100',
+    high_risk: 'High risk clauses',
+    medium_risk: 'Medium risk',
+    low_risk: 'Safe clauses',
+    clauses: 'Clause-by-clause breakdown',
+    summary: 'Overall summary',
+    tips: 'Negotiation tips',
+    export: 'Export report',
+    translate_other: 'Translate to other language',
+    analyze_another: 'Analyze another document',
+    share: 'Share results',
+    translate_modal_title: 'Translate Document Results',
+    translate_modal_body: 'Select a language to translate all analysis results and clauses:',
+    cancel: 'Cancel',
+    cta_title: "Stop signing what you do not understand",
+    cta_body: 'LexPlain makes legal literacy accessible to everyone - for free.',
+    cta_button: 'Analyze your document ->',
+    footer_text: 'Legal Document Simplifier',
+    risk_high_badge: 'High risk',
+    risk_medium_badge: 'Medium risk',
+    risk_low_badge: 'Low risk',
+    file_selected: 'Selected:'
+  },
+  es: {
+    nav_features: 'Funciones',
+    nav_how: 'Como funciona',
+    nav_analyzer: 'Analizador',
+    nav_tech: 'Tecnologia',
+    nav_cta: 'Probar gratis ->',
+    hero_title: 'Entiende <em>cualquier</em> documento legal en segundos',
+    hero_subtitle: 'Sube contratos, alquileres o terminos de servicio y recibe explicaciones simples y alertas de riesgo.',
+    hero_primary: 'Analizar documento ->',
+    hero_secondary: 'Ver como funciona',
+    stat_accuracy: 'Precision de deteccion de clausulas',
+    stat_time: 'Tiempo promedio de analisis',
+    stat_types: 'Tipos de documentos admitidos',
+    features_label: 'Que hacemos',
+    features_title: 'Todo lo necesario para<br>firmar con confianza',
+    features_subtitle: 'Muchas personas firman documentos que no entienden. LexPlain cambia eso al instante.',
+    feature_clause_title: 'Extraccion de clausulas',
+    feature_clause_body: 'Identifica clausulas clave como terminacion, responsabilidad, pago, no competencia, arbitraje y datos.',
+    feature_plain_title: 'Traduccion a lenguaje simple',
+    feature_plain_body: 'Cada clausula compleja se reescribe en palabras claras para que entiendas lo que aceptas.',
+    feature_risk_title: 'Alertas de riesgo',
+    feature_risk_body: 'Cada clausula se marca como riesgo alto, medio o bajo segun que tan favorable es para ti.',
+    feature_score_title: 'Puntaje de favorabilidad',
+    feature_score_body: 'Un puntaje de 0 a 100 muestra rapidamente que tan equilibrado es el documento.',
+    feature_tips_title: 'Consejos de negociacion',
+    feature_tips_body: 'Consejos concretos sobre que clausulas negociar y como iniciar la conversacion.',
+    feature_instant_title: 'Analisis instantaneo',
+    feature_instant_body: 'Sin registro. Pega texto o sube un archivo y recibe resultados rapidamente.',
+    process_label: 'El proceso',
+    process_title: 'Como funciona',
+    process_subtitle: 'Tres pasos desde el documento hasta la comprension.',
+    step1_title: 'Sube o pega',
+    step1_body: 'Sube un PDF, DOCX o pega el texto del contrato directamente.',
+    step2_title: 'Analisis con IA',
+    step2_body: 'El modelo extrae clausulas y evalua el riesgo de cada una.',
+    step3_title: 'Lee el informe',
+    step3_body: 'Obtienes una explicacion simple con riesgos, resumenes y consejos.',
+    step4_title: 'Firma con confianza',
+    step4_body: 'Sabe exactamente que estas aceptando.',
+    demo_label: 'Demo en vivo',
+    analyzer_title: 'Analiza tu documento',
+    analyzer_subtitle: 'Pega cualquier contrato y pulsa analizar. Tambien puedes probar ejemplos.',
+    app_title: 'Analizador LexPlain',
+    app_subtitle: 'Impulsado por analisis de texto legal',
+    placeholder: 'Pega aqui tu contrato de alquiler, terminos de servicio, contrato laboral u otro documento legal...',
+    sample_rental: 'Contrato de alquiler',
+    sample_employment: 'Contrato laboral',
+    sample_tos: 'Terminos de servicio',
+    sample_nda: 'NDA',
+    upload_title: 'Suelta tu contrato aqui',
+    upload_body: 'Admite PDF, DOCX y TXT hasta 10MB',
+    choose_file: 'Elegir archivo',
+    loading_title: 'Analizando tu documento...',
+    loading_body: 'Extrayendo clausulas, evaluando riesgos y creando resumenes simples',
+    loading_parse: 'Leyendo texto',
+    loading_extract: 'Extrayendo clausulas',
+    loading_score: 'Evaluando riesgo',
+    loading_summary: 'Creando resumenes',
+    score_pending: 'Analizando...',
+    score_suffix: '/ 100',
+    high_risk: 'Clausulas de alto riesgo',
+    medium_risk: 'Riesgo medio',
+    low_risk: 'Clausulas seguras',
+    clauses: 'Desglose clausula por clausula',
+    summary: 'Resumen general',
+    tips: 'Consejos de negociacion',
+    export: 'Exportar informe',
+    translate_other: 'Traducir a otro idioma',
+    analyze_another: 'Analizar otro documento',
+    share: 'Compartir resultados',
+    translate_modal_title: 'Traducir resultados',
+    translate_modal_body: 'Selecciona un idioma para traducir los resultados:',
+    cancel: 'Cancelar',
+    cta_title: 'Deja de firmar lo que no entiendes',
+    cta_body: 'LexPlain hace que la lectura legal sea accesible para todos.',
+    cta_button: 'Analiza tu documento ->',
+    footer_text: 'Simplificador de documentos legales',
+    risk_high_badge: 'Alto riesgo',
+    risk_medium_badge: 'Riesgo medio',
+    risk_low_badge: 'Bajo riesgo',
+    file_selected: 'Seleccionado:'
+  },
+  fr: {
+    nav_features: 'Fonctions',
+    nav_how: 'Fonctionnement',
+    nav_analyzer: 'Analyseur',
+    nav_tech: 'Technologie',
+    nav_cta: 'Essayer ->',
+    hero_title: 'Comprenez <em>tout</em> document juridique en quelques secondes',
+    hero_subtitle: 'Importez des contrats, baux ou conditions de service pour obtenir des explications simples et des alertes de risque.',
+    hero_primary: 'Analyser un document ->',
+    hero_secondary: 'Voir le fonctionnement',
+    stat_accuracy: 'Precision de detection des clauses',
+    stat_time: 'Temps moyen d analyse',
+    stat_types: 'Types de documents pris en charge',
+    features_label: 'Ce que nous faisons',
+    features_title: 'Tout pour<br>signer avec confiance',
+    features_subtitle: 'LexPlain rend les documents juridiques plus faciles a comprendre.',
+    feature_clause_title: 'Extraction des clauses',
+    feature_clause_body: 'Detecte les clauses importantes comme resiliation, responsabilite, paiement, arbitrage et donnees.',
+    feature_plain_title: 'Explication simple',
+    feature_plain_body: 'Chaque clause complexe est reformulee dans un langage clair.',
+    feature_risk_title: 'Signalement des risques',
+    feature_risk_body: 'Chaque clause recoit un niveau de risque eleve, moyen ou faible.',
+    feature_score_title: 'Score de favorabilite',
+    feature_score_body: 'Un score de 0 a 100 indique rapidement si le document est equilibre.',
+    feature_tips_title: 'Conseils de negociation',
+    feature_tips_body: 'Des conseils pratiques pour savoir quelles clauses discuter.',
+    feature_instant_title: 'Analyse rapide',
+    feature_instant_body: 'Collez le texte ou importez un fichier et obtenez rapidement les resultats.',
+    process_label: 'Le processus',
+    process_title: 'Fonctionnement',
+    process_subtitle: 'Trois etapes pour comprendre.',
+    step1_title: 'Importer ou coller',
+    step1_body: 'Importez un PDF, DOCX ou collez le texte du contrat.',
+    step2_title: 'Analyse IA',
+    step2_body: 'Le modele extrait les clauses et estime leur risque.',
+    step3_title: 'Lire le rapport',
+    step3_body: 'Recevez une analyse claire avec risques, resumes et conseils.',
+    step4_title: 'Signer avec confiance',
+    step4_body: 'Comprenez exactement ce que vous acceptez.',
+    demo_label: 'Demo',
+    analyzer_title: 'Analyser votre document',
+    analyzer_subtitle: 'Collez un contrat ci-dessous et lancez l analyse.',
+    app_title: 'Analyseur LexPlain',
+    app_subtitle: 'Base sur l analyse de texte juridique',
+    placeholder: 'Collez ici un bail, contrat de travail, conditions de service ou autre document juridique...',
+    sample_rental: 'Bail',
+    sample_employment: 'Contrat de travail',
+    sample_tos: 'Conditions de service',
+    sample_nda: 'NDA',
+    upload_title: 'Deposez votre contrat ici',
+    upload_body: 'PDF, DOCX, TXT jusqu a 10MB',
+    choose_file: 'Choisir un fichier',
+    loading_title: 'Analyse du document...',
+    loading_body: 'Extraction des clauses, evaluation des risques et creation des resumes',
+    loading_parse: 'Lecture du texte',
+    loading_extract: 'Extraction des clauses',
+    loading_score: 'Evaluation du risque',
+    loading_summary: 'Creation des resumes',
+    score_pending: 'Analyse...',
+    score_suffix: '/ 100',
+    high_risk: 'Clauses a haut risque',
+    medium_risk: 'Risque moyen',
+    low_risk: 'Clauses sures',
+    clauses: 'Analyse clause par clause',
+    summary: 'Resume general',
+    tips: 'Conseils de negociation',
+    export: 'Exporter le rapport',
+    translate_other: 'Traduire',
+    analyze_another: 'Analyser un autre document',
+    share: 'Partager',
+    translate_modal_title: 'Traduire les resultats',
+    translate_modal_body: 'Selectionnez une langue pour traduire les resultats:',
+    cancel: 'Annuler',
+    cta_title: 'Ne signez plus ce que vous ne comprenez pas',
+    cta_body: 'LexPlain rend la comprehension juridique accessible.',
+    cta_button: 'Analyser votre document ->',
+    footer_text: 'Simplificateur de documents juridiques',
+    risk_high_badge: 'Haut risque',
+    risk_medium_badge: 'Risque moyen',
+    risk_low_badge: 'Faible risque',
+    file_selected: 'Selectionne:'
+  }
+};
+
+['de', 'zh', 'ja', 'ar', 'hi', 'pt', 'ko'].forEach(lang => {
+  UI_COPY[lang] = { ...UI_COPY.en, ...TRANSLATIONS[lang] };
+});
+
+Object.assign(UI_COPY.hi, {
+  nav_features: 'विशेषताएं',
+  nav_how: 'कैसे काम करता है',
+  nav_analyzer: 'विश्लेषक',
+  nav_tech: 'तकनीक',
+  nav_cta: 'मुफ्त में आजमाएं ->',
+  hero_title: '<em>किसी भी</em> कानूनी दस्तावेज को सेकंडों में समझें',
+  hero_subtitle: 'कॉन्ट्रैक्ट, रेंट एग्रीमेंट या सेवा शर्तें अपलोड करें और तुरंत सरल भाषा में समझाइश और जोखिम अलर्ट पाएं।',
+  hero_primary: 'दस्तावेज का विश्लेषण करें ->',
+  hero_secondary: 'देखें कैसे काम करता है',
+  stat_accuracy: 'क्लॉज पहचान सटीकता',
+  stat_time: 'औसत विश्लेषण समय',
+  stat_types: 'समर्थित दस्तावेज प्रकार',
+  features_label: 'हम क्या करते हैं',
+  features_title: 'आत्मविश्वास से हस्ताक्षर करने के लिए<br>सब कुछ',
+  features_subtitle: 'कई लोग ऐसे दस्तावेजों पर हस्ताक्षर करते हैं जिन्हें वे पूरी तरह नहीं समझते। LexPlain इसे आसान बनाता है।',
+  feature_clause_title: 'क्लॉज निकालना',
+  feature_clause_body: 'समाप्ति, जिम्मेदारी, भुगतान, नॉन-कम्पीट, आर्बिट्रेशन, डेटा अधिकार जैसे महत्वपूर्ण क्लॉज पहचानता है।',
+  feature_plain_title: 'सरल भाषा में समझाना',
+  feature_plain_body: 'हर कठिन क्लॉज को आसान और समझने योग्य भाषा में लिखा जाता है।',
+  feature_risk_title: 'जोखिम अलर्ट',
+  feature_risk_body: 'हर क्लॉज को उच्च, मध्यम या कम जोखिम के रूप में दिखाया जाता है।',
+  feature_score_title: 'फेवरबिलिटी स्कोर',
+  feature_score_body: '0 से 100 तक का स्कोर दिखाता है कि दस्तावेज आपके लिए कितना संतुलित है।',
+  feature_tips_title: 'बातचीत के सुझाव',
+  feature_tips_body: 'कौन से क्लॉज पर बात करनी चाहिए और कैसे बात शुरू करनी चाहिए, इसके व्यावहारिक सुझाव।',
+  feature_instant_title: 'तुरंत विश्लेषण',
+  feature_instant_body: 'साइन अप की जरूरत नहीं। टेक्स्ट पेस्ट करें या फाइल अपलोड करें और जल्दी परिणाम पाएं।',
+  process_label: 'प्रक्रिया',
+  process_title: 'कैसे काम करता है',
+  process_subtitle: 'अपलोड से समझ तक सिर्फ कुछ आसान कदम।',
+  step1_title: 'अपलोड या पेस्ट करें',
+  step1_body: 'PDF, DOCX अपलोड करें या कॉन्ट्रैक्ट टेक्स्ट सीधे पेस्ट करें।',
+  step2_title: 'AI विश्लेषण',
+  step2_body: 'मॉडल क्लॉज निकालता है और हर क्लॉज का जोखिम स्कोर करता है।',
+  step3_title: 'रिपोर्ट पढ़ें',
+  step3_body: 'जोखिम स्कोर, सरल सारांश और बातचीत के सुझावों वाली पूरी रिपोर्ट पाएं।',
+  step4_title: 'आत्मविश्वास से हस्ताक्षर करें',
+  step4_body: 'जानें कि आप असल में किस बात से सहमत हो रहे हैं।',
+  demo_label: 'लाइव डेमो',
+  analyzer_title: 'अपना दस्तावेज विश्लेषित करें',
+  analyzer_subtitle: 'नीचे कोई भी कॉन्ट्रैक्ट टेक्स्ट पेस्ट करें और विश्लेषण शुरू करें।',
+  app_title: 'LexPlain विश्लेषक',
+  app_subtitle: 'कानूनी टेक्स्ट विश्लेषण द्वारा संचालित',
+  placeholder: 'अपना रेंट एग्रीमेंट, सेवा शर्तें, रोजगार अनुबंध या कोई भी कानूनी दस्तावेज यहां पेस्ट करें...',
+  sample_rental: 'रेंट एग्रीमेंट',
+  sample_employment: 'रोजगार अनुबंध',
+  sample_tos: 'सेवा शर्तें',
+  sample_nda: 'NDA',
+  upload_title: 'अपना कॉन्ट्रैक्ट यहां छोड़ें',
+  upload_body: 'PDF, DOCX, TXT फाइलें 10MB तक समर्थित हैं',
+  choose_file: 'फाइल चुनें',
+  loading_title: 'आपके दस्तावेज का विश्लेषण हो रहा है...',
+  loading_body: 'क्लॉज निकाले जा रहे हैं, जोखिम स्कोर हो रहा है, सरल सारांश बन रहे हैं',
+  loading_parse: 'टेक्स्ट पढ़ा जा रहा है',
+  loading_extract: 'क्लॉज निकाले जा रहे हैं',
+  loading_score: 'जोखिम स्कोर हो रहा है',
+  loading_summary: 'सारांश बन रहे हैं',
+  score_pending: 'विश्लेषण हो रहा है...',
+  high_risk: 'उच्च जोखिम वाले क्लॉज',
+  medium_risk: 'मध्यम जोखिम',
+  low_risk: 'सुरक्षित क्लॉज',
+  clauses: 'क्लॉज-दर-क्लॉज विश्लेषण',
+  summary: 'कुल सारांश',
+  tips: 'बातचीत के सुझाव',
+  export: 'रिपोर्ट एक्सपोर्ट करें',
+  translate_other: 'दूसरी भाषा में अनुवाद करें',
+  analyze_another: 'दूसरा दस्तावेज विश्लेषित करें',
+  share: 'परिणाम शेयर करें',
+  translate_modal_title: 'दस्तावेज परिणामों का अनुवाद करें',
+  translate_modal_body: 'सभी विश्लेषण परिणाम और क्लॉज अनुवाद करने के लिए भाषा चुनें:',
+  cancel: 'रद्द करें',
+  cta_title: 'जो समझ न आए, उस पर हस्ताक्षर न करें',
+  cta_body: 'LexPlain कानूनी समझ को सभी के लिए आसान बनाता है।',
+  cta_button: 'अपना दस्तावेज विश्लेषित करें ->',
+  footer_text: 'कानूनी दस्तावेज सरलकर्ता',
+  risk_high_badge: 'उच्च जोखिम',
+  risk_medium_badge: 'मध्यम जोखिम',
+  risk_low_badge: 'कम जोखिम',
+  file_selected: 'चुना गया:'
+});
+
+const FULL_LANGUAGE_COPY = {
+  de: {
+    nav_features: 'Funktionen',
+    nav_how: 'So funktioniert es',
+    nav_analyzer: 'Analyzer',
+    nav_tech: 'Technik',
+    nav_cta: 'Kostenlos testen ->',
+    hero_title: '<em>Jedes</em> Rechtsdokument in Sekunden verstehen',
+    hero_subtitle: 'Laden Sie Vertrage, Mietvereinbarungen oder Nutzungsbedingungen hoch und erhalten Sie sofort einfache Erklarungen und Risiko-Hinweise.',
+    hero_primary: 'Dokument analysieren ->',
+    hero_secondary: 'So funktioniert es',
+    stat_accuracy: 'Genauigkeit der Klauselerkennung',
+    stat_time: 'Durchschnittliche Analysezeit',
+    stat_types: 'Unterstutzte Dokumenttypen',
+    features_label: 'Was wir tun',
+    features_title: 'Alles, was Sie brauchen,<br>um sicher zu unterschreiben',
+    features_subtitle: 'Viele Menschen unterschreiben Dokumente, die sie nicht voll verstehen. LexPlain macht sie sofort verstandlich.',
+    feature_clause_title: 'Klauseln erkennen',
+    feature_clause_body: 'Erkennt wichtige Klauseln wie Kundigung, Haftung, Zahlung, Wettbewerbsverbot, Schiedsverfahren und Datenrechte.',
+    feature_plain_title: 'Einfache Sprache',
+    feature_plain_body: 'Komplexe Klauseln werden in klare, leicht verstandliche Sprache umgeschrieben.',
+    feature_risk_title: 'Risiko-Hinweise',
+    feature_risk_body: 'Jede Klausel wird als hohes, mittleres oder niedriges Risiko bewertet.',
+    feature_score_title: 'Fairness-Score',
+    feature_score_body: 'Ein Score von 0 bis 100 zeigt, wie ausgewogen das Dokument fur Sie ist.',
+    feature_tips_title: 'Verhandlungstipps',
+    feature_tips_body: 'Praktische Hinweise, welche Klauseln Sie ansprechen sollten und wie Sie verhandeln konnen.',
+    feature_instant_title: 'Sofortige Analyse',
+    feature_instant_body: 'Keine Anmeldung erforderlich. Text einfugen oder Datei hochladen und schnell Ergebnisse erhalten.',
+    process_label: 'Der Ablauf',
+    process_title: 'So funktioniert es',
+    process_subtitle: 'Von Upload zu Verstandnis in wenigen Schritten.',
+    step1_title: 'Hochladen oder einfugen',
+    step1_body: 'PDF, DOCX hochladen oder Vertragstext direkt einfugen.',
+    step2_title: 'KI-Analyse',
+    step2_body: 'Das Modell extrahiert Klauseln und bewertet deren Risiko.',
+    step3_title: 'Bericht lesen',
+    step3_body: 'Sie erhalten einfache Zusammenfassungen, Risikowerte und Verhandlungstipps.',
+    step4_title: 'Sicher unterschreiben',
+    step4_body: 'Verstehen Sie genau, worauf Sie sich einlassen.',
+    demo_label: 'Live-Demo',
+    analyzer_title: 'Dokument analysieren',
+    analyzer_subtitle: 'Fugen Sie unten Vertragstext ein und starten Sie die Analyse.',
+    app_title: 'LexPlain Analyzer',
+    app_subtitle: 'Unterstutzt durch juristische Textanalyse',
+    placeholder: 'Fugen Sie hier Mietvertrag, Nutzungsbedingungen, Arbeitsvertrag oder ein anderes Rechtsdokument ein...',
+    sample_rental: 'Mietvertrag',
+    sample_employment: 'Arbeitsvertrag',
+    sample_tos: 'Nutzungsbedingungen',
+    sample_nda: 'NDA',
+    upload_title: 'Vertrag hier ablegen',
+    upload_body: 'Unterstutzt PDF, DOCX, TXT bis 10MB',
+    choose_file: 'Datei auswahlen',
+    loading_title: 'Dokument wird analysiert...',
+    loading_body: 'Klauseln werden extrahiert, Risiken bewertet und einfache Zusammenfassungen erstellt',
+    loading_parse: 'Text wird gelesen',
+    loading_extract: 'Klauseln werden extrahiert',
+    loading_score: 'Risiko wird bewertet',
+    loading_summary: 'Zusammenfassungen werden erstellt',
+    score_pending: 'Analyse lauft...',
+    high_risk: 'Klauseln mit hohem Risiko',
+    medium_risk: 'Mittleres Risiko',
+    low_risk: 'Sichere Klauseln',
+    clauses: 'Klausel-fur-Klausel-Analyse',
+    summary: 'Gesamtzusammenfassung',
+    tips: 'Verhandlungstipps',
+    export: 'Bericht exportieren',
+    translate_other: 'In andere Sprache ubersetzen',
+    analyze_another: 'Anderes Dokument analysieren',
+    share: 'Ergebnisse teilen',
+    translate_modal_title: 'Dokumentergebnisse ubersetzen',
+    translate_modal_body: 'Wahlen Sie eine Sprache, um alle Ergebnisse und Klauseln zu ubersetzen:',
+    cancel: 'Abbrechen',
+    cta_title: 'Unterschreiben Sie nichts, was Sie nicht verstehen',
+    cta_body: 'LexPlain macht juristisches Verstehen fur alle zuganglich.',
+    cta_button: 'Dokument analysieren ->',
+    footer_text: 'Rechtsdokument-Vereinfacher',
+    risk_high_badge: 'Hohes Risiko',
+    risk_medium_badge: 'Mittleres Risiko',
+    risk_low_badge: 'Niedriges Risiko',
+    file_selected: 'Ausgewahlt:'
+  },
+  pt: {
+    nav_features: 'Recursos',
+    nav_how: 'Como funciona',
+    nav_analyzer: 'Analisador',
+    nav_tech: 'Tecnologia',
+    nav_cta: 'Testar gratis ->',
+    hero_title: 'Entenda <em>qualquer</em> documento juridico em segundos',
+    hero_subtitle: 'Envie contratos, alugueis ou termos de servico e receba explicacoes simples e alertas de risco.',
+    hero_primary: 'Analisar documento ->',
+    hero_secondary: 'Ver como funciona',
+    stat_accuracy: 'Precisao na deteccao de clausulas',
+    stat_time: 'Tempo medio de analise',
+    stat_types: 'Tipos de documentos suportados',
+    features_label: 'O que fazemos',
+    features_title: 'Tudo que voce precisa<br>para assinar com confianca',
+    features_subtitle: 'Muitas pessoas assinam documentos que nao entendem. LexPlain muda isso rapidamente.',
+    feature_clause_title: 'Extracao de clausulas',
+    feature_clause_body: 'Identifica clausulas importantes como rescisao, responsabilidade, pagamento, nao concorrencia, arbitragem e dados.',
+    feature_plain_title: 'Linguagem simples',
+    feature_plain_body: 'Cada clausula complexa e reescrita em linguagem clara e facil de entender.',
+    feature_risk_title: 'Alertas de risco',
+    feature_risk_body: 'Cada clausula recebe nivel de risco alto, medio ou baixo.',
+    feature_score_title: 'Pontuacao de favorabilidade',
+    feature_score_body: 'Uma nota de 0 a 100 mostra se o documento esta equilibrado para voce.',
+    feature_tips_title: 'Dicas de negociacao',
+    feature_tips_body: 'Orientacoes praticas sobre quais clausulas discutir e como negociar.',
+    feature_instant_title: 'Analise instantanea',
+    feature_instant_body: 'Sem cadastro. Cole o texto ou envie um arquivo e receba resultados rapidamente.',
+    process_label: 'O processo',
+    process_title: 'Como funciona',
+    process_subtitle: 'Do envio ao entendimento em poucos passos.',
+    step1_title: 'Enviar ou colar',
+    step1_body: 'Envie um PDF, DOCX ou cole o texto do contrato diretamente.',
+    step2_title: 'Analise com IA',
+    step2_body: 'O modelo extrai clausulas e avalia o risco de cada uma.',
+    step3_title: 'Leia o relatorio',
+    step3_body: 'Receba resumos simples, pontuacoes de risco e dicas de negociacao.',
+    step4_title: 'Assine com confianca',
+    step4_body: 'Saiba exatamente com o que voce esta concordando.',
+    demo_label: 'Demo ao vivo',
+    analyzer_title: 'Analise seu documento',
+    analyzer_subtitle: 'Cole qualquer contrato abaixo e clique em analisar.',
+    app_title: 'Analisador LexPlain',
+    app_subtitle: 'Movido por analise de texto juridico',
+    placeholder: 'Cole aqui contrato de aluguel, termos de servico, contrato de trabalho ou outro documento juridico...',
+    sample_rental: 'Contrato de aluguel',
+    sample_employment: 'Contrato de trabalho',
+    sample_tos: 'Termos de servico',
+    sample_nda: 'NDA',
+    upload_title: 'Solte seu contrato aqui',
+    upload_body: 'Suporta PDF, DOCX, TXT ate 10MB',
+    choose_file: 'Escolher arquivo',
+    loading_title: 'Analisando seu documento...',
+    loading_body: 'Extraindo clausulas, avaliando riscos e criando resumos simples',
+    loading_parse: 'Lendo texto',
+    loading_extract: 'Extraindo clausulas',
+    loading_score: 'Avaliando risco',
+    loading_summary: 'Criando resumos',
+    score_pending: 'Analisando...',
+    high_risk: 'Clausulas de alto risco',
+    medium_risk: 'Risco medio',
+    low_risk: 'Clausulas seguras',
+    clauses: 'Analise clausula por clausula',
+    summary: 'Resumo geral',
+    tips: 'Dicas de negociacao',
+    export: 'Exportar relatorio',
+    translate_other: 'Traduzir para outro idioma',
+    analyze_another: 'Analisar outro documento',
+    share: 'Compartilhar resultados',
+    translate_modal_title: 'Traduzir resultados do documento',
+    translate_modal_body: 'Selecione um idioma para traduzir todos os resultados e clausulas:',
+    cancel: 'Cancelar',
+    cta_title: 'Pare de assinar o que voce nao entende',
+    cta_body: 'LexPlain torna a compreensao juridica acessivel para todos.',
+    cta_button: 'Analisar seu documento ->',
+    footer_text: 'Simplificador de documentos juridicos',
+    risk_high_badge: 'Alto risco',
+    risk_medium_badge: 'Risco medio',
+    risk_low_badge: 'Baixo risco',
+    file_selected: 'Selecionado:'
+  },
+  zh: {
+    nav_features: '功能',
+    nav_how: '工作方式',
+    nav_analyzer: '分析器',
+    nav_tech: '技术栈',
+    nav_cta: '免费试用 ->',
+    hero_title: '几秒内理解<em>任何</em>法律文件',
+    hero_subtitle: '上传合同、租赁协议或服务条款，立即获得简单说明和风险提示。',
+    hero_primary: '分析文件 ->',
+    hero_secondary: '查看工作方式',
+    stat_accuracy: '条款识别准确率',
+    stat_time: '平均分析时间',
+    stat_types: '支持的文件类型',
+    features_label: '我们能做什么',
+    features_title: '让你有信心签署文件的<br>全部工具',
+    features_subtitle: '很多人签署了自己不理解的文件。LexPlain 可以快速把它变清楚。',
+    feature_clause_title: '条款提取',
+    feature_clause_body: '自动识别终止、责任、付款、竞业限制、仲裁、数据权利等关键条款。',
+    feature_plain_title: '简单语言解释',
+    feature_plain_body: '把复杂条款改写成清楚、易懂的说明。',
+    feature_risk_title: '风险标记',
+    feature_risk_body: '每个条款都会被标记为高、中或低风险。',
+    feature_score_title: '有利程度评分',
+    feature_score_body: '0 到 100 分显示文件对你是否公平和平衡。',
+    feature_tips_title: '谈判建议',
+    feature_tips_body: '告诉你哪些条款应该讨论，以及如何开始谈判。',
+    feature_instant_title: '即时分析',
+    feature_instant_body: '无需注册。粘贴文本或上传文件即可快速获得结果。',
+    process_label: '流程',
+    process_title: '工作方式',
+    process_subtitle: '从上传到理解，只需几个步骤。',
+    step1_title: '上传或粘贴',
+    step1_body: '上传 PDF、DOCX，或直接粘贴合同文本。',
+    step2_title: 'AI 分析',
+    step2_body: '模型提取条款并评估每个条款的风险。',
+    step3_title: '阅读报告',
+    step3_body: '获得简单摘要、风险评分和谈判建议。',
+    step4_title: '放心签署',
+    step4_body: '清楚知道自己正在同意什么。',
+    demo_label: '实时演示',
+    analyzer_title: '分析你的文件',
+    analyzer_subtitle: '在下方粘贴合同文本并点击分析。',
+    app_title: 'LexPlain 分析器',
+    app_subtitle: '由法律文本分析提供支持',
+    placeholder: '在此粘贴租赁协议、服务条款、劳动合同或其他法律文件...',
+    sample_rental: '租赁协议',
+    sample_employment: '劳动合同',
+    sample_tos: '服务条款',
+    sample_nda: '保密协议',
+    upload_title: '将合同拖放到这里',
+    upload_body: '支持 PDF、DOCX、TXT，最大 10MB',
+    choose_file: '选择文件',
+    loading_title: '正在分析你的文件...',
+    loading_body: '正在提取条款、评估风险并生成简单摘要',
+    loading_parse: '读取文本',
+    loading_extract: '提取条款',
+    loading_score: '评估风险',
+    loading_summary: '生成摘要',
+    score_pending: '正在分析...',
+    high_risk: '高风险条款',
+    medium_risk: '中等风险',
+    low_risk: '安全条款',
+    clauses: '逐条款分析',
+    summary: '总体摘要',
+    tips: '谈判建议',
+    export: '导出报告',
+    translate_other: '翻译成其他语言',
+    analyze_another: '分析另一个文件',
+    share: '分享结果',
+    translate_modal_title: '翻译文件结果',
+    translate_modal_body: '选择一种语言来翻译所有分析结果和条款：',
+    cancel: '取消',
+    cta_title: '不要再签署你不理解的内容',
+    cta_body: 'LexPlain 让每个人都能理解法律文件。',
+    cta_button: '分析你的文件 ->',
+    footer_text: '法律文件简化器',
+    risk_high_badge: '高风险',
+    risk_medium_badge: '中等风险',
+    risk_low_badge: '低风险',
+    file_selected: '已选择：'
+  },
+  ja: {
+    nav_features: '機能',
+    nav_how: '使い方',
+    nav_analyzer: '分析ツール',
+    nav_tech: '技術構成',
+    nav_cta: '無料で試す ->',
+    hero_title: '<em>どんな</em>法的文書でも数秒で理解',
+    hero_subtitle: '契約書、賃貸契約、利用規約をアップロードして、わかりやすい説明とリスク表示をすぐに確認できます。',
+    hero_primary: '文書を分析 ->',
+    hero_secondary: '使い方を見る',
+    stat_accuracy: '条項検出の精度',
+    stat_time: '平均分析時間',
+    stat_types: '対応文書タイプ',
+    features_label: 'できること',
+    features_title: '安心して署名するために<br>必要なすべて',
+    features_subtitle: '多くの人が内容を十分に理解しないまま署名しています。LexPlain はそれをわかりやすくします。',
+    feature_clause_title: '条項の抽出',
+    feature_clause_body: '解除、責任、支払い、競業避止、仲裁、データ権利などの重要条項を自動で見つけます。',
+    feature_plain_title: 'やさしい言葉で説明',
+    feature_plain_body: '難しい条項を読みやすく理解しやすい説明に書き換えます。',
+    feature_risk_title: 'リスク表示',
+    feature_risk_body: '各条項を高、中、低のリスクとして表示します。',
+    feature_score_title: '有利度スコア',
+    feature_score_body: '0 から 100 のスコアで文書がどれだけ公平かを示します。',
+    feature_tips_title: '交渉のヒント',
+    feature_tips_body: 'どの条項を話し合うべきか、どのように交渉を始めるかを提案します。',
+    feature_instant_title: 'すぐに分析',
+    feature_instant_body: '登録不要。テキストを貼り付けるかファイルをアップロードしてすぐに結果を確認できます。',
+    process_label: '手順',
+    process_title: '使い方',
+    process_subtitle: 'アップロードから理解まで、わずか数ステップです。',
+    step1_title: 'アップロードまたは貼り付け',
+    step1_body: 'PDF、DOCX をアップロードするか、契約文を直接貼り付けます。',
+    step2_title: 'AI 分析',
+    step2_body: 'モデルが条項を抽出し、それぞれのリスクを評価します。',
+    step3_title: 'レポートを読む',
+    step3_body: '簡単な要約、リスクスコア、交渉のヒントを確認できます。',
+    step4_title: '安心して署名',
+    step4_body: '何に同意しているのかを明確に理解できます。',
+    demo_label: 'ライブデモ',
+    analyzer_title: '文書を分析',
+    analyzer_subtitle: '下に契約文を貼り付けて分析を開始してください。',
+    app_title: 'LexPlain 分析ツール',
+    app_subtitle: '法的テキスト分析を利用',
+    placeholder: '賃貸契約、利用規約、雇用契約、その他の法的文書をここに貼り付けてください...',
+    sample_rental: '賃貸契約',
+    sample_employment: '雇用契約',
+    sample_tos: '利用規約',
+    sample_nda: '秘密保持契約',
+    upload_title: '契約書をここにドロップ',
+    upload_body: 'PDF、DOCX、TXT を 10MB まで対応',
+    choose_file: 'ファイルを選択',
+    loading_title: '文書を分析しています...',
+    loading_body: '条項を抽出し、リスクを評価し、わかりやすい要約を作成しています',
+    loading_parse: 'テキストを読み込み中',
+    loading_extract: '条項を抽出中',
+    loading_score: 'リスクを評価中',
+    loading_summary: '要約を作成中',
+    score_pending: '分析中...',
+    high_risk: '高リスク条項',
+    medium_risk: '中リスク',
+    low_risk: '安全な条項',
+    clauses: '条項ごとの分析',
+    summary: '全体要約',
+    tips: '交渉のヒント',
+    export: 'レポートを出力',
+    translate_other: '他の言語に翻訳',
+    analyze_another: '別の文書を分析',
+    share: '結果を共有',
+    translate_modal_title: '文書結果を翻訳',
+    translate_modal_body: 'すべての分析結果と条項を翻訳する言語を選択してください：',
+    cancel: 'キャンセル',
+    cta_title: '理解できない内容に署名しない',
+    cta_body: 'LexPlain は法的理解を誰にでもわかりやすくします。',
+    cta_button: '文書を分析 ->',
+    footer_text: '法的文書シンプル化ツール',
+    risk_high_badge: '高リスク',
+    risk_medium_badge: '中リスク',
+    risk_low_badge: '低リスク',
+    file_selected: '選択済み：'
+  },
+  ar: {
+    nav_features: 'الميزات',
+    nav_how: 'طريقة العمل',
+    nav_analyzer: 'المحلل',
+    nav_tech: 'التقنية',
+    nav_cta: 'جرب مجانا ->',
+    hero_title: 'افهم <em>أي</em> مستند قانوني خلال ثوان',
+    hero_subtitle: 'ارفع العقود أو اتفاقيات الإيجار أو شروط الخدمة واحصل فورا على شرح بسيط وتنبيهات للمخاطر.',
+    hero_primary: 'حلل المستند ->',
+    hero_secondary: 'شاهد طريقة العمل',
+    stat_accuracy: 'دقة اكتشاف البنود',
+    stat_time: 'متوسط وقت التحليل',
+    stat_types: 'أنواع المستندات المدعومة',
+    features_label: 'ما الذي نقدمه',
+    features_title: 'كل ما تحتاجه<br>للتوقيع بثقة',
+    features_subtitle: 'كثيرون يوقعون مستندات لا يفهمونها بالكامل. LexPlain يجعلها واضحة بسرعة.',
+    feature_clause_title: 'استخراج البنود',
+    feature_clause_body: 'يحدد البنود المهمة مثل الإنهاء والمسؤولية والدفع وعدم المنافسة والتحكيم وحقوق البيانات.',
+    feature_plain_title: 'شرح بلغة بسيطة',
+    feature_plain_body: 'يعاد صياغة كل بند معقد بلغة واضحة وسهلة الفهم.',
+    feature_risk_title: 'تنبيهات المخاطر',
+    feature_risk_body: 'يتم تصنيف كل بند كمخاطر عالية أو متوسطة أو منخفضة.',
+    feature_score_title: 'درجة الملاءمة',
+    feature_score_body: 'درجة من 0 إلى 100 توضح مدى توازن المستند بالنسبة لك.',
+    feature_tips_title: 'نصائح تفاوض',
+    feature_tips_body: 'إرشادات عملية حول البنود التي يجب مناقشتها وكيفية بدء التفاوض.',
+    feature_instant_title: 'تحليل فوري',
+    feature_instant_body: 'لا حاجة للتسجيل. الصق النص أو ارفع ملفا واحصل على النتائج بسرعة.',
+    process_label: 'العملية',
+    process_title: 'طريقة العمل',
+    process_subtitle: 'من الرفع إلى الفهم في خطوات قليلة.',
+    step1_title: 'ارفع أو الصق',
+    step1_body: 'ارفع PDF أو DOCX أو الصق نص العقد مباشرة.',
+    step2_title: 'تحليل بالذكاء الاصطناعي',
+    step2_body: 'يستخرج النموذج البنود ويقيم مخاطر كل بند.',
+    step3_title: 'اقرأ التقرير',
+    step3_body: 'احصل على ملخصات بسيطة ودرجات مخاطر ونصائح تفاوض.',
+    step4_title: 'وقع بثقة',
+    step4_body: 'اعرف بالضبط ما الذي توافق عليه.',
+    demo_label: 'عرض مباشر',
+    analyzer_title: 'حلل مستندك',
+    analyzer_subtitle: 'الصق نص أي عقد أدناه واضغط تحليل.',
+    app_title: 'محلل LexPlain',
+    app_subtitle: 'مدعوم بتحليل النصوص القانونية',
+    placeholder: 'الصق هنا عقد الإيجار أو شروط الخدمة أو عقد العمل أو أي مستند قانوني...',
+    sample_rental: 'اتفاقية إيجار',
+    sample_employment: 'عقد عمل',
+    sample_tos: 'شروط الخدمة',
+    sample_nda: 'اتفاقية سرية',
+    upload_title: 'ضع العقد هنا',
+    upload_body: 'يدعم PDF و DOCX و TXT حتى 10MB',
+    choose_file: 'اختر ملفا',
+    loading_title: 'جار تحليل مستندك...',
+    loading_body: 'يتم استخراج البنود وتقييم المخاطر وإنشاء ملخصات بسيطة',
+    loading_parse: 'قراءة النص',
+    loading_extract: 'استخراج البنود',
+    loading_score: 'تقييم المخاطر',
+    loading_summary: 'إنشاء الملخصات',
+    score_pending: 'جار التحليل...',
+    high_risk: 'بنود عالية المخاطر',
+    medium_risk: 'مخاطر متوسطة',
+    low_risk: 'بنود آمنة',
+    clauses: 'تحليل بندا بندا',
+    summary: 'ملخص عام',
+    tips: 'نصائح تفاوض',
+    export: 'تصدير التقرير',
+    translate_other: 'ترجمة إلى لغة أخرى',
+    analyze_another: 'تحليل مستند آخر',
+    share: 'مشاركة النتائج',
+    translate_modal_title: 'ترجمة نتائج المستند',
+    translate_modal_body: 'اختر لغة لترجمة جميع نتائج التحليل والبنود:',
+    cancel: 'إلغاء',
+    cta_title: 'لا توقع ما لا تفهمه',
+    cta_body: 'LexPlain يجعل فهم المستندات القانونية متاحا للجميع.',
+    cta_button: 'حلل مستندك ->',
+    footer_text: 'مبسط المستندات القانونية',
+    risk_high_badge: 'مخاطر عالية',
+    risk_medium_badge: 'مخاطر متوسطة',
+    risk_low_badge: 'مخاطر منخفضة',
+    file_selected: 'تم الاختيار:'
+  },
+  ko: {
+    nav_features: '기능',
+    nav_how: '작동 방식',
+    nav_analyzer: '분석기',
+    nav_tech: '기술 스택',
+    nav_cta: '무료로 사용 ->',
+    hero_title: '<em>어떤</em> 법률 문서도 몇 초 안에 이해',
+    hero_subtitle: '계약서, 임대차 계약서, 서비스 약관을 업로드하면 쉬운 설명과 위험 표시를 바로 확인할 수 있습니다.',
+    hero_primary: '문서 분석 ->',
+    hero_secondary: '작동 방식 보기',
+    stat_accuracy: '조항 감지 정확도',
+    stat_time: '평균 분석 시간',
+    stat_types: '지원 문서 유형',
+    features_label: '제공 기능',
+    features_title: '안심하고 서명하기 위한<br>모든 것',
+    features_subtitle: '많은 사람이 이해하지 못한 문서에 서명합니다. LexPlain은 이를 쉽게 바꿉니다.',
+    feature_clause_title: '조항 추출',
+    feature_clause_body: '해지, 책임, 결제, 경업 금지, 중재, 데이터 권리 등 핵심 조항을 자동으로 찾습니다.',
+    feature_plain_title: '쉬운 말 설명',
+    feature_plain_body: '복잡한 조항을 명확하고 읽기 쉬운 설명으로 다시 작성합니다.',
+    feature_risk_title: '위험 표시',
+    feature_risk_body: '각 조항을 높음, 중간, 낮음 위험으로 표시합니다.',
+    feature_score_title: '유리도 점수',
+    feature_score_body: '0부터 100까지의 점수로 문서가 얼마나 균형적인지 보여줍니다.',
+    feature_tips_title: '협상 팁',
+    feature_tips_body: '어떤 조항을 이야기해야 하는지, 어떻게 협상을 시작할지 알려줍니다.',
+    feature_instant_title: '즉시 분석',
+    feature_instant_body: '가입 없이 텍스트를 붙여넣거나 파일을 업로드하면 빠르게 결과를 확인할 수 있습니다.',
+    process_label: '프로세스',
+    process_title: '작동 방식',
+    process_subtitle: '업로드부터 이해까지 몇 단계면 충분합니다.',
+    step1_title: '업로드 또는 붙여넣기',
+    step1_body: 'PDF, DOCX를 업로드하거나 계약 텍스트를 직접 붙여넣습니다.',
+    step2_title: 'AI 분석',
+    step2_body: '모델이 조항을 추출하고 각 조항의 위험을 평가합니다.',
+    step3_title: '보고서 읽기',
+    step3_body: '쉬운 요약, 위험 점수, 협상 팁을 확인합니다.',
+    step4_title: '안심하고 서명',
+    step4_body: '무엇에 동의하는지 정확히 알 수 있습니다.',
+    demo_label: '라이브 데모',
+    analyzer_title: '문서 분석',
+    analyzer_subtitle: '아래에 계약 텍스트를 붙여넣고 분석을 누르세요.',
+    app_title: 'LexPlain 분석기',
+    app_subtitle: '법률 텍스트 분석 기반',
+    placeholder: '임대차 계약서, 서비스 약관, 고용 계약서 또는 다른 법률 문서를 여기에 붙여넣으세요...',
+    sample_rental: '임대차 계약',
+    sample_employment: '고용 계약',
+    sample_tos: '서비스 약관',
+    sample_nda: '비밀유지계약',
+    upload_title: '계약서를 여기에 놓으세요',
+    upload_body: 'PDF, DOCX, TXT 파일 최대 10MB 지원',
+    choose_file: '파일 선택',
+    loading_title: '문서를 분석하는 중...',
+    loading_body: '조항을 추출하고 위험을 평가하며 쉬운 요약을 생성하는 중',
+    loading_parse: '텍스트 읽는 중',
+    loading_extract: '조항 추출 중',
+    loading_score: '위험 평가 중',
+    loading_summary: '요약 생성 중',
+    score_pending: '분석 중...',
+    high_risk: '높은 위험 조항',
+    medium_risk: '중간 위험',
+    low_risk: '안전한 조항',
+    clauses: '조항별 분석',
+    summary: '전체 요약',
+    tips: '협상 팁',
+    export: '보고서 내보내기',
+    translate_other: '다른 언어로 번역',
+    analyze_another: '다른 문서 분석',
+    share: '결과 공유',
+    translate_modal_title: '문서 결과 번역',
+    translate_modal_body: '모든 분석 결과와 조항을 번역할 언어를 선택하세요:',
+    cancel: '취소',
+    cta_title: '이해하지 못한 내용에 서명하지 마세요',
+    cta_body: 'LexPlain은 법률 문서 이해를 모두에게 쉽게 만듭니다.',
+    cta_button: '문서 분석 ->',
+    footer_text: '법률 문서 단순화 도구',
+    risk_high_badge: '높은 위험',
+    risk_medium_badge: '중간 위험',
+    risk_low_badge: '낮은 위험',
+    file_selected: '선택됨:'
+  }
+};
+
+Object.entries(FULL_LANGUAGE_COPY).forEach(([lang, values]) => {
+  Object.assign(UI_COPY[lang], values);
+});
+
+const ANALYZER_RESULT_COPY = {
+  en: {
+    scoreGood: 'Favorable document',
+    scoreMedium: 'Review before signing',
+    scoreLow: 'High caution needed',
+    descGood: 'Most clauses look balanced, but review the details before signing.',
+    descMedium: 'Some clauses may favor the other party. Consider negotiating the highlighted terms.',
+    descLow: 'Several clauses may be risky. Get clarification or legal advice before signing.',
+    summary: (high, medium, low, total) => `This document has ${total} important clause(s): ${high} high risk, ${medium} medium risk, and ${low} lower risk. Focus first on the highest-risk clauses before signing.`,
+    clauseTitle: (index, risk) => `Clause ${index} - ${risk} risk`,
+    clausePlain: risk => `This clause was identified as ${risk} risk. Read the original wording carefully and confirm that you understand the obligation before signing.`,
+    tipHigh: 'Ask to rewrite or remove this clause before signing.',
+    tipMedium: 'Ask for clarification and try to negotiate a more balanced version.',
+    tipLow: '',
+    tips: [
+      'Review every high-risk clause before signing.',
+      'Ask the other party to explain unclear obligations in writing.',
+      'Keep a copy of the final signed document.'
+    ]
+  },
+  es: {
+    scoreGood: 'Documento favorable',
+    scoreMedium: 'Revisar antes de firmar',
+    scoreLow: 'Se necesita mucha precaucion',
+    descGood: 'La mayoria de las clausulas parecen equilibradas, pero revisa los detalles antes de firmar.',
+    descMedium: 'Algunas clausulas pueden favorecer a la otra parte. Considera negociar los puntos marcados.',
+    descLow: 'Varias clausulas pueden ser riesgosas. Pide aclaracion o asesoria legal antes de firmar.',
+    summary: (high, medium, low, total) => `Este documento tiene ${total} clausula(s) importante(s): ${high} de alto riesgo, ${medium} de riesgo medio y ${low} de menor riesgo. Revisa primero las clausulas de mayor riesgo.`,
+    clauseTitle: (index, risk) => `Clausula ${index} - riesgo ${risk}`,
+    clausePlain: risk => `Esta clausula fue identificada como riesgo ${risk}. Lee el texto original con cuidado y confirma que entiendes la obligacion antes de firmar.`,
+    tipHigh: 'Pide cambiar o eliminar esta clausula antes de firmar.',
+    tipMedium: 'Pide aclaracion e intenta negociar una version mas equilibrada.',
+    tipLow: '',
+    tips: [
+      'Revisa cada clausula de alto riesgo antes de firmar.',
+      'Pide que expliquen por escrito cualquier obligacion confusa.',
+      'Guarda una copia del documento final firmado.'
+    ]
+  },
+  fr: {
+    scoreGood: 'Document favorable',
+    scoreMedium: 'A verifier avant signature',
+    scoreLow: 'Grande prudence necessaire',
+    descGood: 'La plupart des clauses semblent equilibrees, mais verifiez les details avant de signer.',
+    descMedium: 'Certaines clauses peuvent favoriser l autre partie. Essayez de negocier les points signales.',
+    descLow: 'Plusieurs clauses peuvent etre risquees. Demandez des precisions ou un avis juridique avant de signer.',
+    summary: (high, medium, low, total) => `Ce document contient ${total} clause(s) importante(s) : ${high} a haut risque, ${medium} a risque moyen et ${low} a risque plus faible. Examinez d abord les clauses les plus risquees.`,
+    clauseTitle: (index, risk) => `Clause ${index} - risque ${risk}`,
+    clausePlain: risk => `Cette clause a ete identifiee comme un risque ${risk}. Lisez attentivement le texte original et assurez-vous de comprendre l obligation avant de signer.`,
+    tipHigh: 'Demandez a modifier ou supprimer cette clause avant de signer.',
+    tipMedium: 'Demandez une clarification et negociez une version plus equilibree.',
+    tipLow: '',
+    tips: [
+      'Examinez chaque clause a haut risque avant de signer.',
+      'Demandez une explication ecrite pour toute obligation confuse.',
+      'Conservez une copie du document final signe.'
+    ]
+  },
+  de: {
+    scoreGood: 'Gunstiges Dokument',
+    scoreMedium: 'Vor dem Unterschreiben prufen',
+    scoreLow: 'Hohe Vorsicht erforderlich',
+    descGood: 'Die meisten Klauseln wirken ausgewogen, aber prufen Sie die Details vor der Unterschrift.',
+    descMedium: 'Einige Klauseln konnen die andere Partei begunstigen. Verhandeln Sie die markierten Punkte.',
+    descLow: 'Mehrere Klauseln konnen riskant sein. Holen Sie Klarung oder rechtlichen Rat ein.',
+    summary: (high, medium, low, total) => `Dieses Dokument enthalt ${total} wichtige Klausel(n): ${high} mit hohem Risiko, ${medium} mit mittlerem Risiko und ${low} mit geringerem Risiko. Prufen Sie zuerst die riskantesten Klauseln.`,
+    clauseTitle: (index, risk) => `Klausel ${index} - Risiko ${risk}`,
+    clausePlain: risk => `Diese Klausel wurde als Risiko ${risk} eingestuft. Lesen Sie den Originaltext sorgfaltig und stellen Sie sicher, dass Sie die Verpflichtung verstehen.`,
+    tipHigh: 'Bitten Sie darum, diese Klausel vor der Unterschrift zu andern oder zu entfernen.',
+    tipMedium: 'Bitten Sie um Klarung und verhandeln Sie eine ausgewogenere Fassung.',
+    tipLow: '',
+    tips: [
+      'Prufen Sie jede Hochrisiko-Klausel vor der Unterschrift.',
+      'Lassen Sie unklare Pflichten schriftlich erklaren.',
+      'Bewahren Sie eine Kopie des final unterschriebenen Dokuments auf.'
+    ]
+  },
+  zh: {
+    scoreGood: '文件较有利',
+    scoreMedium: '签署前请复查',
+    scoreLow: '需要高度谨慎',
+    descGood: '大多数条款看起来较平衡，但签署前仍应检查细节。',
+    descMedium: '部分条款可能更有利于对方。建议协商标记的内容。',
+    descLow: '多个条款可能存在风险。签署前请要求说明或寻求法律建议。',
+    summary: (high, medium, low, total) => `此文件包含 ${total} 个重要条款：${high} 个高风险，${medium} 个中等风险，${low} 个较低风险。签署前请先处理最高风险条款。`,
+    clauseTitle: (index, risk) => `条款 ${index} - ${risk} 风险`,
+    clausePlain: risk => `此条款被识别为${risk}风险。请仔细阅读原文，并确认你理解其中的义务后再签署。`,
+    tipHigh: '签署前请要求修改或删除此条款。',
+    tipMedium: '请要求进一步说明，并尝试协商更平衡的版本。',
+    tipLow: '',
+    tips: [
+      '签署前检查所有高风险条款。',
+      '要求对方用书面形式解释不清楚的义务。',
+      '保留最终签署文件的副本。'
+    ]
+  },
+  ja: {
+    scoreGood: '有利な文書',
+    scoreMedium: '署名前に確認が必要',
+    scoreLow: '十分な注意が必要',
+    descGood: '多くの条項は比較的バランスが取れていますが、署名前に詳細を確認してください。',
+    descMedium: '一部の条項は相手側に有利な可能性があります。強調された条件を交渉してください。',
+    descLow: '複数の条項にリスクがあります。署名前に説明や法的助言を受けてください。',
+    summary: (high, medium, low, total) => `この文書には ${total} 個の重要条項があります。高リスク ${high} 件、中リスク ${medium} 件、低リスク ${low} 件です。署名前に高リスク条項を優先して確認してください。`,
+    clauseTitle: (index, risk) => `条項 ${index} - ${risk} リスク`,
+    clausePlain: risk => `この条項は${risk}リスクとして識別されました。原文を注意深く読み、義務を理解してから署名してください。`,
+    tipHigh: '署名前にこの条項の修正または削除を求めてください。',
+    tipMedium: '説明を求め、より公平な内容に交渉してください。',
+    tipLow: '',
+    tips: [
+      '署名前にすべての高リスク条項を確認してください。',
+      '不明な義務は書面で説明してもらってください。',
+      '最終的に署名した文書のコピーを保管してください。'
+    ]
+  },
+  ar: {
+    scoreGood: 'مستند مناسب',
+    scoreMedium: 'راجع قبل التوقيع',
+    scoreLow: 'تحتاج إلى حذر كبير',
+    descGood: 'تبدو معظم البنود متوازنة، لكن راجع التفاصيل قبل التوقيع.',
+    descMedium: 'قد تفضل بعض البنود الطرف الآخر. حاول التفاوض على البنود المحددة.',
+    descLow: 'توجد عدة بنود قد تكون خطرة. اطلب توضيحا أو استشارة قانونية قبل التوقيع.',
+    summary: (high, medium, low, total) => `يحتوي هذا المستند على ${total} بندا مهما: ${high} عالي المخاطر، ${medium} متوسط المخاطر، و ${low} أقل خطورة. راجع البنود الأعلى خطرا أولا.`,
+    clauseTitle: (index, risk) => `البند ${index} - مخاطر ${risk}`,
+    clausePlain: risk => `تم تحديد هذا البند على أنه ${risk} المخاطر. اقرأ النص الأصلي بعناية وتأكد من فهم الالتزام قبل التوقيع.`,
+    tipHigh: 'اطلب تعديل هذا البند أو حذفه قبل التوقيع.',
+    tipMedium: 'اطلب توضيحا وحاول التفاوض على صياغة أكثر توازنا.',
+    tipLow: '',
+    tips: [
+      'راجع كل بند عالي المخاطر قبل التوقيع.',
+      'اطلب شرحا مكتوبا لأي التزام غير واضح.',
+      'احتفظ بنسخة من المستند النهائي الموقع.'
+    ]
+  },
+  hi: {
+    scoreGood: 'अनुकूल दस्तावेज',
+    scoreMedium: 'हस्ताक्षर से पहले समीक्षा करें',
+    scoreLow: 'अधिक सावधानी जरूरी',
+    descGood: 'अधिकतर क्लॉज संतुलित लगते हैं, लेकिन हस्ताक्षर से पहले विवरण जरूर देखें।',
+    descMedium: 'कुछ क्लॉज दूसरी पार्टी के पक्ष में हो सकते हैं। चिन्हित शर्तों पर बातचीत करें।',
+    descLow: 'कई क्लॉज जोखिम भरे हो सकते हैं। हस्ताक्षर से पहले स्पष्टीकरण या कानूनी सलाह लें।',
+    summary: (high, medium, low, total) => `इस दस्तावेज में ${total} महत्वपूर्ण क्लॉज हैं: ${high} उच्च जोखिम, ${medium} मध्यम जोखिम, और ${low} कम जोखिम। हस्ताक्षर से पहले सबसे जोखिम वाले क्लॉज पर ध्यान दें।`,
+    clauseTitle: (index, risk) => `क्लॉज ${index} - ${risk} जोखिम`,
+    clausePlain: risk => `यह क्लॉज ${risk} जोखिम के रूप में पहचाना गया है। मूल शब्दों को ध्यान से पढ़ें और हस्ताक्षर से पहले अपनी जिम्मेदारी समझें।`,
+    tipHigh: 'हस्ताक्षर से पहले इस क्लॉज को बदलने या हटाने के लिए कहें।',
+    tipMedium: 'स्पष्टीकरण मांगें और अधिक संतुलित संस्करण पर बातचीत करें।',
+    tipLow: '',
+    tips: [
+      'हस्ताक्षर से पहले हर उच्च जोखिम क्लॉज की समीक्षा करें।',
+      'अस्पष्ट जिम्मेदारियों का लिखित स्पष्टीकरण मांगें।',
+      'अंतिम हस्ताक्षरित दस्तावेज की कॉपी रखें।'
+    ]
+  },
+  pt: {
+    scoreGood: 'Documento favoravel',
+    scoreMedium: 'Revise antes de assinar',
+    scoreLow: 'Muita cautela necessaria',
+    descGood: 'A maioria das clausulas parece equilibrada, mas revise os detalhes antes de assinar.',
+    descMedium: 'Algumas clausulas podem favorecer a outra parte. Considere negociar os termos destacados.',
+    descLow: 'Varias clausulas podem ser arriscadas. Peca esclarecimento ou orientacao juridica antes de assinar.',
+    summary: (high, medium, low, total) => `Este documento tem ${total} clausula(s) importante(s): ${high} de alto risco, ${medium} de risco medio e ${low} de menor risco. Revise primeiro as clausulas mais arriscadas.`,
+    clauseTitle: (index, risk) => `Clausula ${index} - risco ${risk}`,
+    clausePlain: risk => `Esta clausula foi identificada como risco ${risk}. Leia o texto original com cuidado e confirme que entende a obrigacao antes de assinar.`,
+    tipHigh: 'Peca para alterar ou remover esta clausula antes de assinar.',
+    tipMedium: 'Peca esclarecimento e tente negociar uma versao mais equilibrada.',
+    tipLow: '',
+    tips: [
+      'Revise cada clausula de alto risco antes de assinar.',
+      'Peca explicacao por escrito para qualquer obrigacao confusa.',
+      'Guarde uma copia do documento final assinado.'
+    ]
+  },
+  ko: {
+    scoreGood: '유리한 문서',
+    scoreMedium: '서명 전 검토 필요',
+    scoreLow: '높은 주의 필요',
+    descGood: '대부분의 조항은 균형적으로 보이지만 서명 전에 세부 내용을 확인하세요.',
+    descMedium: '일부 조항은 상대방에게 유리할 수 있습니다. 표시된 조건을 협상해 보세요.',
+    descLow: '여러 조항이 위험할 수 있습니다. 서명 전에 설명이나 법률 조언을 받으세요.',
+    summary: (high, medium, low, total) => `이 문서에는 중요한 조항 ${total}개가 있습니다: 높은 위험 ${high}개, 중간 위험 ${medium}개, 낮은 위험 ${low}개입니다. 서명 전 가장 위험한 조항부터 확인하세요.`,
+    clauseTitle: (index, risk) => `조항 ${index} - ${risk} 위험`,
+    clausePlain: risk => `이 조항은 ${risk} 위험으로 확인되었습니다. 원문을 주의 깊게 읽고 의무를 이해한 뒤 서명하세요.`,
+    tipHigh: '서명 전에 이 조항의 수정 또는 삭제를 요청하세요.',
+    tipMedium: '설명을 요청하고 더 균형적인 내용으로 협상하세요.',
+    tipLow: '',
+    tips: [
+      '서명 전에 모든 높은 위험 조항을 검토하세요.',
+      '불명확한 의무는 서면 설명을 요청하세요.',
+      '최종 서명 문서의 사본을 보관하세요.'
+    ]
+  }
+};
+
+function copy(key) {
+  return (UI_COPY[currentLanguage] && UI_COPY[currentLanguage][key]) || UI_COPY.en[key] || key;
+}
+
+function setText(selector, key) {
+  document.querySelectorAll(selector).forEach(el => {
+    el.textContent = copy(key);
+  });
+}
+
+function setHtml(selector, key) {
+  document.querySelectorAll(selector).forEach(el => {
+    el.innerHTML = copy(key);
+  });
+}
+
+function applyLanguage() {
+  document.documentElement.lang = currentLanguage;
+  document.documentElement.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
+
+  setText('.nav-links a[href="#features"]', 'nav_features');
+  setText('.nav-links a[href="#how-it-works"]', 'nav_how');
+  setText('.nav-links a[href="#analyzer"]', 'nav_analyzer');
+  setText('.nav-links a[href="#tech"]', 'nav_tech');
+  setText('.nav-cta', 'nav_cta');
+  setHtml('.hero h1', 'hero_title');
+  setText('.hero p', 'hero_subtitle');
+  setText('.hero .btn-primary', 'hero_primary');
+  setText('.hero .btn-secondary', 'hero_secondary');
+  setText('.stats-strip .stat-item:nth-child(1) .label', 'stat_accuracy');
+  setText('.stats-strip .stat-item:nth-child(2) .label', 'stat_time');
+  setText('.stats-strip .stat-item:nth-child(3) .label', 'stat_types');
+  setText('#features .section-label', 'features_label');
+  setHtml('#features .section-title', 'features_title');
+  setText('#features .section-sub', 'features_subtitle');
+  setText('#features .feat-card:nth-child(1) h3', 'feature_clause_title');
+  setText('#features .feat-card:nth-child(1) p', 'feature_clause_body');
+  setText('#features .feat-card:nth-child(2) h3', 'feature_plain_title');
+  setText('#features .feat-card:nth-child(2) p', 'feature_plain_body');
+  setText('#features .feat-card:nth-child(3) h3', 'feature_risk_title');
+  setText('#features .feat-card:nth-child(3) p', 'feature_risk_body');
+  setText('#features .feat-card:nth-child(4) h3', 'feature_score_title');
+  setText('#features .feat-card:nth-child(4) p', 'feature_score_body');
+  setText('#features .feat-card:nth-child(5) h3', 'feature_tips_title');
+  setText('#features .feat-card:nth-child(5) p', 'feature_tips_body');
+  setText('#features .feat-card:nth-child(6) h3', 'feature_instant_title');
+  setText('#features .feat-card:nth-child(6) p', 'feature_instant_body');
+  setText('#how-it-works .section-label', 'process_label');
+  setText('#how-it-works .section-title', 'process_title');
+  setText('#how-it-works .section-sub', 'process_subtitle');
+  setText('#how-it-works .step:nth-child(1) h3', 'step1_title');
+  setText('#how-it-works .step:nth-child(1) p', 'step1_body');
+  setText('#how-it-works .step:nth-child(2) h3', 'step2_title');
+  setText('#how-it-works .step:nth-child(2) p', 'step2_body');
+  setText('#how-it-works .step:nth-child(3) h3', 'step3_title');
+  setText('#how-it-works .step:nth-child(3) p', 'step3_body');
+  setText('#how-it-works .step:nth-child(4) h3', 'step4_title');
+  setText('#how-it-works .step:nth-child(4) p', 'step4_body');
+  setText('#analyzer > .section-label', 'demo_label');
+  setText('#analyzer > .section-title', 'analyzer_title');
+  setText('#analyzer > .section-sub', 'analyzer_subtitle');
+  setText('.app-header h2', 'app_title');
+  setText('.app-header p', 'app_subtitle');
+  setText('.tab-btn:nth-child(1)', 'paste');
+  setText('.tab-btn:nth-child(2)', 'upload');
+  document.getElementById('contract-text').placeholder = copy('placeholder');
+  setText('.samples-label', 'sample');
+  setText('.sample-docs .sample-pill:nth-child(1)', 'sample_rental');
+  setText('.sample-docs .sample-pill:nth-child(2)', 'sample_employment');
+  setText('.sample-docs .sample-pill:nth-child(3)', 'sample_tos');
+  setText('.sample-docs .sample-pill:nth-child(4)', 'sample_nda');
+  setText('.upload-zone h3', 'upload_title');
+  setText('.upload-zone p', 'upload_body');
+  setText('.upload-zone .btn-primary', 'choose_file');
+  setText('#analyze-btn', 'analyze');
+  setText('#loading-state h3', 'loading_title');
+  setText('#loading-state p', 'loading_body');
+  setText('#ls1', 'loading_parse');
+  setText('#ls2', 'loading_extract');
+  setText('#ls3', 'loading_score');
+  setText('#ls4', 'loading_summary');
+  if (!document.getElementById('score-desc').textContent) {
+    setText('#score-label', 'score_pending');
+  }
+  setText('.score-sublabel', 'score_suffix');
+  setText('.stat-c.high .slabel', 'high_risk');
+  setText('.stat-c.medium .slabel', 'medium_risk');
+  setText('.stat-c.low .slabel', 'low_risk');
+  setText('.clauses-section h3', 'clauses');
+  setText('.summary-section h3', 'summary');
+  setText('.nego-section h3', 'tips');
+  setText('.result-actions .action-btn:nth-child(1)', 'export');
+  setText('.result-actions .action-btn:nth-child(2)', 'translate_other');
+  setText('.result-actions .action-btn:nth-child(3)', 'analyze_another');
+  setText('.result-actions .action-btn:nth-child(4)', 'share');
+  setText('.translation-modal-content h3', 'translate_modal_title');
+  setText('.translation-modal-content > p', 'translate_modal_body');
+  setText('.translate-cancel', 'cancel');
+  setText('.cta-section h2', 'cta_title');
+  setText('.cta-section p', 'cta_body');
+  setText('.cta-btn', 'cta_button');
+  setText('footer p', 'footer_text');
+  setText('.footer-links a[href="#features"]', 'nav_features');
+  setText('.footer-links a[href="#analyzer"]', 'nav_analyzer');
+}
+
 function setLanguage(lang) {
+  const previousLanguage = currentLanguage;
   currentLanguage = lang;
   const langName = LANGUAGES[lang].name;
   document.getElementById('lang-toggle').textContent = LANGUAGES[lang].flag + ' ' + langName;
   document.getElementById('lang-dropdown').classList.remove('active');
   localStorage.setItem('selectedLanguage', lang);
+  applyLanguage();
+  const textArea = document.getElementById('contract-text');
+  if (window.currentSampleKey && textArea && textArea.value === getSampleText(window.currentSampleKey, previousLanguage)) {
+    textArea.value = getSampleText(window.currentSampleKey, currentLanguage);
+  }
+  if (window.currentResults) {
+    renderResults(window.currentResults, { preserveRaw: true });
+  }
 }
 
 document.getElementById('lang-toggle').addEventListener('click', function() {
@@ -1118,6 +2254,12 @@ window.addEventListener('load', function() {
   const savedLang = localStorage.getItem('selectedLanguage') || 'en';
   if (LANGUAGES[savedLang]) {
     setLanguage(savedLang);
+  }
+});
+
+document.getElementById('contract-text').addEventListener('input', function() {
+  if (window.currentSampleKey && this.value !== getSampleText(window.currentSampleKey)) {
+    window.currentSampleKey = null;
   }
 });
 
@@ -1187,8 +2329,209 @@ RETURN OF INFORMATION: Upon request, Receiving Party shall immediately return or
 PENALTIES: Any breach of this agreement shall entitle Disclosing Party to liquidated damages of $50,000 per incident, plus attorney fees and costs.`
 };
 
+const SAMPLE_DOCUMENT_COPY = {
+  es: {
+    rental: `CONTRATO DE ALQUILER RESIDENCIAL
+
+RENTA: El inquilino pagara $1,800 al mes el dia 1. Si paga despues del dia 5, debera pagar una multa de $150.
+
+DEPOSITO DE SEGURIDAD: El inquilino pagara $3,600. El propietario puede descontar renta pendiente, danos o limpieza a su criterio.
+
+TERMINACION: El inquilino debe avisar por escrito con 60 dias de anticipacion. Si se va sin aviso, puede deber dos meses adicionales de renta.
+
+RESPONSABILIDAD: El propietario no sera responsable por lesiones, perdidas o danos dentro de la propiedad.
+
+ENTRADA: El propietario puede entrar para inspecciones, reparaciones o visitas de posibles inquilinos con o sin aviso.`,
+    employment: `CONTRATO DE TRABAJO
+
+NO COMPETENCIA: Durante 24 meses despues de terminar el empleo, el empleado no podra trabajar para competidores dentro de 100 millas.
+
+PROPIEDAD INTELECTUAL: Todo invento, idea o trabajo creado por el empleado pertenecera exclusivamente a la empresa.
+
+ARBITRAJE: Cualquier disputa se resolvera por arbitraje obligatorio. El empleado renuncia a juicio con jurado y demandas colectivas.
+
+TERMINACION: La empresa puede terminar el contrato en cualquier momento, con o sin aviso, y sin indemnizacion.
+
+CONFIDENCIALIDAD: El empleado no puede revelar informacion confidencial durante ni despues del empleo.`,
+    tos: `TERMINOS DE SERVICIO
+
+RECOLECCION DE DATOS: Podemos recolectar datos de navegacion, ubicacion, dispositivo y uso. Estos datos pueden compartirse con socios.
+
+LICENCIA: Usted nos otorga una licencia mundial, permanente y gratuita para usar cualquier contenido que envie.
+
+TERMINACION DE CUENTA: Podemos suspender o cancelar su cuenta en cualquier momento sin aviso ni reembolso.
+
+LIMITACION DE RESPONSABILIDAD: Nuestra responsabilidad total no excedera $1.00.
+
+CAMBIOS: Podemos cambiar estos terminos en cualquier momento. Su uso continuo significa aceptacion.`,
+    nda: `ACUERDO DE CONFIDENCIALIDAD
+
+INFORMACION CONFIDENCIAL: La parte receptora debe mantener secreta toda informacion recibida, incluidos planes de negocio, clientes y datos tecnicos.
+
+DURACION: La obligacion durara 5 anos y, para secretos comerciales, de forma indefinida.
+
+NO SOLICITACION: Durante el acuerdo y 2 anos despues, la parte receptora no podra contratar empleados de la otra parte.
+
+MEDIDA CAUTELAR: Una violacion puede causar dano irreparable y permite solicitar medidas judiciales.
+
+PENALIDADES: Cada incumplimiento puede generar danos liquidados de $50,000 mas costos legales.`
+  },
+  fr: {
+    rental: `CONTRAT DE LOCATION RESIDENTIELLE
+
+LOYER : Le locataire paiera 1 800 $ par mois le 1er jour. Un retard apres le 5 entraine des frais de 150 $.
+
+DEPOT DE GARANTIE : Le locataire versera 3 600 $. Le proprietaire peut deduire loyers impayes, degats ou nettoyage.
+
+RESILIATION : Le locataire doit donner un preavis ecrit de 60 jours. Sans preavis, il peut devoir deux mois de loyer.
+
+RESPONSABILITE : Le proprietaire n est pas responsable des blessures, pertes ou dommages dans les lieux.
+
+ENTREE : Le proprietaire peut entrer pour inspection, reparations ou visites avec ou sans preavis.`,
+    employment: `CONTRAT DE TRAVAIL
+
+NON-CONCURRENCE : Pendant 24 mois apres la fin du contrat, l employe ne peut pas travailler pour un concurrent dans un rayon de 100 miles.
+
+PROPRIETE INTELLECTUELLE : Toute idee, invention ou creation de l employe appartient exclusivement a l entreprise.
+
+ARBITRAGE : Tout litige sera resolu par arbitrage obligatoire. L employe renonce au jury et aux actions collectives.
+
+RESILIATION : L entreprise peut mettre fin au contrat a tout moment, avec ou sans preavis, sans indemnite.
+
+CONFIDENTIALITE : L employe ne doit pas divulguer d informations confidentielles pendant ou apres l emploi.`,
+    tos: `CONDITIONS D UTILISATION
+
+COLLECTE DE DONNEES : Nous pouvons collecter navigation, localisation, appareil et habitudes d utilisation, puis les partager avec des partenaires.
+
+LICENCE : Vous nous accordez une licence mondiale, permanente et gratuite pour utiliser tout contenu soumis.
+
+FERMETURE DE COMPTE : Nous pouvons suspendre ou fermer votre compte sans preavis ni remboursement.
+
+LIMITATION DE RESPONSABILITE : Notre responsabilite totale ne depassera pas 1,00 $.
+
+MODIFICATIONS : Nous pouvons modifier ces conditions a tout moment. Continuer le service signifie accepter.`,
+    nda: `ACCORD DE CONFIDENTIALITE
+
+INFORMATIONS CONFIDENTIELLES : La partie receptrice doit garder secretes toutes les informations recues.
+
+DUREE : L obligation dure 5 ans et reste illimitee pour les secrets commerciaux.
+
+NON-SOLLICITATION : Pendant l accord et 2 ans apres, la partie receptrice ne peut pas recruter les employes de l autre partie.
+
+MESURES D URGENCE : Une violation peut causer un dommage irreparable et permettre une injonction.
+
+PENALITES : Chaque violation peut entrainer 50 000 $ de dommages liquides plus frais juridiques.`
+  },
+  de: {
+    rental: `WOHNMietvertrag
+
+MIETE: Der Mieter zahlt monatlich 1.800 $ am 1. Tag. Bei Zahlung nach dem 5. Tag fallt eine Gebuhr von 150 $ an.
+
+KAUTION: Der Mieter zahlt 3.600 $. Der Vermieter darf offene Miete, Schaden oder Reinigungskosten abziehen.
+
+KUNDIGUNG: Der Mieter muss 60 Tage vorher schriftlich kundigen. Ohne Hinweis kann er zwei weitere Monatsmieten schulden.
+
+HAFTUNG: Der Vermieter haftet nicht fur Verletzungen, Verluste oder Schaden auf dem Grundstuck.
+
+ZUTRITT: Der Vermieter darf fur Inspektionen, Reparaturen oder Besichtigungen mit oder ohne Hinweis eintreten.`,
+    employment: `ARBEITSVERTRAG
+
+WETTBEWERBSVERBOT: Fur 24 Monate nach Ende der Beschaftigung darf der Mitarbeiter nicht fur Wettbewerber im Umkreis von 100 Meilen arbeiten.
+
+GEISTIGES EIGENTUM: Alle Ideen, Erfindungen und Arbeitsergebnisse gehoren ausschliesslich dem Unternehmen.
+
+SCHIEDSVERFAHREN: Streitigkeiten werden durch verbindliche Schiedsgerichtsbarkeit gelost. Der Mitarbeiter verzichtet auf Juryverfahren und Sammelklagen.
+
+KUNDIGUNG: Das Unternehmen kann jederzeit mit oder ohne Hinweis ohne Abfindung kundigen.
+
+VERTRAULICHKEIT: Vertrauliche Informationen durfen wahrend und nach der Beschaftigung nicht offengelegt werden.`,
+    tos: `NUTZUNGSBEDINGUNGEN
+
+DATENERFASSUNG: Wir konnen Browserdaten, Standort, Geratekennungen und Nutzungsverhalten sammeln und mit Partnern teilen.
+
+LIZENZ: Sie gewahren uns eine weltweite, dauerhafte und kostenlose Lizenz zur Nutzung Ihrer Inhalte.
+
+KONTOKUNDIGUNG: Wir konnen Ihr Konto jederzeit ohne Hinweis und ohne Erstattung sperren oder beenden.
+
+HAFTUNGSBEGRENZUNG: Unsere gesamte Haftung ubersteigt nicht 1,00 $.
+
+ANDERUNGEN: Wir konnen diese Bedingungen jederzeit andern. Weitere Nutzung gilt als Zustimmung.`,
+    nda: `GEHEIMHALTUNGSVEREINBARUNG
+
+VERTRAULICHE INFORMATIONEN: Die empfangende Partei muss alle offengelegten Informationen geheim halten.
+
+DAUER: Die Pflicht gilt 5 Jahre und fur Geschaftsgeheimnisse unbegrenzt.
+
+ABWERBEVERBOT: Wahrend der Laufzeit und 2 Jahre danach darf die empfangende Partei keine Mitarbeiter abwerben.
+
+EINSTWEILIGE VERFUGUNG: Ein Verstoss kann irreparablen Schaden verursachen und gerichtliche Hilfe erlauben.
+
+STRAFEN: Jeder Verstoss kann pauschalen Schadenersatz von 50.000 $ plus Anwaltskosten auslosen.`
+  },
+  hi: {
+    rental: `आवासीय किराया समझौता
+
+किराया: किरायेदार हर महीने की 1 तारीख को $1,800 किराया देगा। 5 तारीख के बाद भुगतान पर $150 लेट फीस लगेगी।
+
+सुरक्षा जमा: किरायेदार $3,600 जमा करेगा। मकान मालिक बकाया किराया, नुकसान या सफाई शुल्क काट सकता है।
+
+समाप्ति: किरायेदार को खाली करने से 60 दिन पहले लिखित सूचना देनी होगी।
+
+जिम्मेदारी: परिसर में चोट, नुकसान या हानि के लिए मकान मालिक जिम्मेदार नहीं होगा।
+
+प्रवेश: मकान मालिक निरीक्षण, मरम्मत या दिखाने के लिए सूचना के साथ या बिना प्रवेश कर सकता है।`,
+    employment: `रोजगार अनुबंध
+
+नॉन-कम्पीट: नौकरी खत्म होने के 24 महीने तक कर्मचारी 100 मील के अंदर किसी प्रतिस्पर्धी के लिए काम नहीं करेगा।
+
+बौद्धिक संपत्ति: कर्मचारी द्वारा बनाई गई सभी खोज, विचार और काम कंपनी की संपत्ति होंगे।
+
+आर्बिट्रेशन: कोई भी विवाद बाध्यकारी आर्बिट्रेशन से हल होगा। कर्मचारी जूरी ट्रायल और क्लास एक्शन का अधिकार छोड़ता है।
+
+समाप्ति: कंपनी किसी भी समय, किसी भी कारण से, नोटिस या सेवरेंस के बिना नौकरी समाप्त कर सकती है।
+
+गोपनीयता: कर्मचारी नौकरी के दौरान या बाद में गोपनीय जानकारी साझा नहीं करेगा।`,
+    tos: `सेवा शर्तें
+
+डेटा संग्रह: हम ब्राउजिंग, स्थान, डिवाइस और उपयोग डेटा एकत्र कर सकते हैं और साझेदारों से साझा कर सकते हैं।
+
+लाइसेंस: आप हमें अपनी सामग्री उपयोग करने का विश्वव्यापी, स्थायी और मुफ्त लाइसेंस देते हैं।
+
+खाता समाप्ति: हम आपका खाता कभी भी बिना नोटिस या रिफंड बंद कर सकते हैं।
+
+जिम्मेदारी सीमा: हमारी कुल जिम्मेदारी $1.00 से अधिक नहीं होगी।
+
+बदलाव: हम इन शर्तों को कभी भी बदल सकते हैं। सेवा का उपयोग जारी रखना स्वीकृति माना जाएगा।`,
+    nda: `गोपनीयता समझौता
+
+गोपनीय जानकारी: प्राप्त करने वाली पार्टी सभी साझा जानकारी को गोपनीय रखेगी।
+
+अवधि: यह गोपनीयता 5 साल तक लागू रहेगी और व्यापार रहस्यों के लिए अनिश्चित काल तक।
+
+नॉन-सॉलिसिटेशन: समझौते के दौरान और 2 साल बाद तक कर्मचारी नियुक्त नहीं किए जाएंगे।
+
+इंजंक्शन: उल्लंघन से अपूरणीय नुकसान हो सकता है और अदालत से राहत मांगी जा सकती है।
+
+जुर्माना: प्रत्येक उल्लंघन पर $50,000 और कानूनी खर्च देय हो सकते हैं।`
+  }
+};
+
+['pt', 'zh', 'ja', 'ar', 'ko'].forEach(lang => {
+  SAMPLE_DOCUMENT_COPY[lang] = {
+    rental: `${UI_COPY[lang].sample_rental}\n\n${UI_COPY[lang].high_risk}: ${ANALYZER_RESULT_COPY[lang].tipHigh}\n\n${UI_COPY[lang].medium_risk}: ${ANALYZER_RESULT_COPY[lang].tipMedium}\n\n${UI_COPY[lang].summary}: ${ANALYZER_RESULT_COPY[lang].summary(2, 2, 1, 5)}`,
+    employment: `${UI_COPY[lang].sample_employment}\n\n${UI_COPY[lang].high_risk}: ${ANALYZER_RESULT_COPY[lang].tipHigh}\n\n${UI_COPY[lang].medium_risk}: ${ANALYZER_RESULT_COPY[lang].tipMedium}\n\n${UI_COPY[lang].summary}: ${ANALYZER_RESULT_COPY[lang].summary(3, 1, 1, 5)}`,
+    tos: `${UI_COPY[lang].sample_tos}\n\n${UI_COPY[lang].high_risk}: ${ANALYZER_RESULT_COPY[lang].tipHigh}\n\n${UI_COPY[lang].medium_risk}: ${ANALYZER_RESULT_COPY[lang].tipMedium}\n\n${UI_COPY[lang].summary}: ${ANALYZER_RESULT_COPY[lang].summary(2, 2, 1, 5)}`,
+    nda: `${UI_COPY[lang].sample_nda}\n\n${UI_COPY[lang].high_risk}: ${ANALYZER_RESULT_COPY[lang].tipHigh}\n\n${UI_COPY[lang].medium_risk}: ${ANALYZER_RESULT_COPY[lang].tipMedium}\n\n${UI_COPY[lang].summary}: ${ANALYZER_RESULT_COPY[lang].summary(2, 2, 1, 5)}`
+  };
+});
+
+function getSampleText(key, lang = currentLanguage) {
+  return (SAMPLE_DOCUMENT_COPY[lang] && SAMPLE_DOCUMENT_COPY[lang][key]) || SAMPLES[key] || '';
+}
+
 function loadSample(key) {
-  document.getElementById('contract-text').value = SAMPLES[key];
+  window.currentSampleKey = key;
+  document.getElementById('contract-text').value = getSampleText(key);
   switchTab('paste');
 }
 
@@ -1203,7 +2546,8 @@ function switchTab(tab) {
 function handleFile(input) {
   const file = input.files[0];
   if (!file) return;
-  document.getElementById('file-name').textContent = 'Selected: ' + file.name;
+  window.currentSampleKey = null;
+  document.getElementById('file-name').textContent = copy('file_selected') + ' ' + file.name;
   if (file.type === 'text/plain') {
     const reader = new FileReader();
     reader.onload = e => {
@@ -1245,7 +2589,11 @@ async function analyzeDocument() {
     const res = await fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: text })
+      body: JSON.stringify({
+        text: text,
+        target_language: currentLanguage,
+        language_name: LANGUAGES[currentLanguage].name
+      })
     });
     clearInterval(stepInterval);
     
@@ -1255,7 +2603,13 @@ async function analyzeDocument() {
     }
     
     const result = await res.json();
-    renderResults(result);
+    window.currentResults = result;
+    if (currentLanguage !== 'en') {
+      const translated = await translateAnalysisForLanguage(result, currentLanguage);
+      renderResults(translated, { preserveRaw: true });
+    } else {
+      renderResults(result, { preserveRaw: true });
+    }
   } catch (e) {
     clearInterval(stepInterval);
     document.getElementById('loading-state').style.display = 'none';
@@ -1264,18 +2618,80 @@ async function analyzeDocument() {
   }
 }
 
-function renderResults(r) {
+async function translateAnalysisForLanguage(results, targetLang) {
+  if (targetLang === 'en') return results;
+  const langName = LANGUAGES[targetLang].name;
+  try {
+    const res = await fetch('http://localhost:5000/api/translate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        results: results,
+        target_language: targetLang,
+        language_name: langName
+      })
+    });
+    if (res.ok) {
+      const translated = await res.json();
+      if (translated && !translated.error) return translated;
+    }
+  } catch (e) {
+    // Local fallback keeps the analyzer readable when the AI translation endpoint is unavailable.
+  }
+  return translateResultsLocally(results, targetLang, { silent: true });
+}
+
+function riskName(risk, lang = currentLanguage) {
+  if (risk === 'high') return (UI_COPY[lang] || UI_COPY.en).risk_high_badge || copy('risk_high_badge');
+  if (risk === 'medium') return (UI_COPY[lang] || UI_COPY.en).risk_medium_badge || copy('risk_medium_badge');
+  return (UI_COPY[lang] || UI_COPY.en).risk_low_badge || copy('risk_low_badge');
+}
+
+function localizeAnalyzerResults(results, lang = currentLanguage) {
+  if (lang === 'en') return results;
+  const text = ANALYZER_RESULT_COPY[lang] || ANALYZER_RESULT_COPY.en;
+  const clauses = results.clauses || [];
+  const counts = clauses.reduce((acc, clause) => {
+    const risk = clause.risk || 'low';
+    acc[risk] = (acc[risk] || 0) + 1;
+    return acc;
+  }, { high: 0, medium: 0, low: 0 });
+
+  return {
+    ...results,
+    score_label: (results.score || 50) >= 70 ? text.scoreGood : (results.score || 50) >= 45 ? text.scoreMedium : text.scoreLow,
+    score_desc: (results.score || 50) >= 70 ? text.descGood : (results.score || 50) >= 45 ? text.descMedium : text.descLow,
+    summary: text.summary(counts.high || 0, counts.medium || 0, counts.low || 0, clauses.length),
+    clauses: clauses.map((clause, index) => {
+      const risk = clause.risk || 'low';
+      const translatedRisk = riskName(risk, lang).toLowerCase();
+      return {
+        ...clause,
+        title: text.clauseTitle(index + 1, translatedRisk),
+        plain: text.clausePlain(translatedRisk),
+        tip: risk === 'high' ? text.tipHigh : risk === 'medium' ? text.tipMedium : text.tipLow
+      };
+    }),
+    negotiation_tips: text.tips
+  };
+}
+
+function renderResults(r, options = {}) {
+  if (!options.preserveRaw) {
+    window.currentResults = r;
+  }
+  const displayResults = localizeAnalyzerResults(r, currentLanguage);
   document.getElementById('loading-state').style.display = 'none';
 
-  const score = r.score || 50;
+  const score = displayResults.score || 50;
   const ring = document.getElementById('score-ring');
   document.getElementById('score-num').textContent = score;
   ring.style.background = score >= 70 ? '#27ae60' : score >= 45 ? '#e67e22' : '#c0392b';
-  document.getElementById('score-label').textContent = r.score_label || '';
-  document.getElementById('score-desc').textContent = r.score_desc || '';
-  document.getElementById('summary-text').textContent = r.summary || '';
+  document.getElementById('score-label').textContent = displayResults.score_label || '';
+  document.getElementById('score-desc').textContent = displayResults.score_desc || '';
+  document.getElementById('summary-text').textContent = displayResults.summary || '';
 
-  const clauses = r.clauses || [];
+  const clauses = displayResults.clauses || [];
   let high = 0, medium = 0, low = 0;
   const list = document.getElementById('clauses-list');
   list.innerHTML = '';
@@ -1288,7 +2704,11 @@ function renderResults(r) {
     card.className = 'clause-card ' + c.risk;
     const tipHTML = c.tip && c.risk !== 'low'
       ? `<div class="clause-tip ${c.risk}">💡 ${c.tip}</div>` : '';
-    const badgeLabel = c.risk === 'high' ? '⚠ High risk' : c.risk === 'medium' ? '◉ Medium risk' : '✓ Low risk';
+    const badgeLabel = c.risk === 'high'
+      ? copy('risk_high_badge')
+      : c.risk === 'medium'
+        ? copy('risk_medium_badge')
+        : copy('risk_low_badge');
     card.innerHTML = `
       <div class="clause-top">
         <div class="clause-title">${c.title}</div>
@@ -1305,7 +2725,7 @@ function renderResults(r) {
   document.getElementById('stat-medium').textContent = medium;
   document.getElementById('stat-low').textContent = low;
 
-  const tips = r.negotiation_tips || [];
+  const tips = displayResults.negotiation_tips || [];
   const negoList = document.getElementById('nego-list');
   negoList.innerHTML = '';
   if (tips.length > 0) {
@@ -1331,7 +2751,12 @@ function resetApp() {
   ['ls1','ls2','ls3','ls4'].forEach((id, i) => {
     const el = document.getElementById(id);
     el.className = 'lstep' + (i === 0 ? ' done' : i === 1 ? ' active' : '');
-    el.textContent = ['✓ Parsing text', '⟳ Extracting clauses', 'Scoring risk', 'Generating summaries'][i];
+    el.textContent = [
+      copy('loading_parse'),
+      copy('loading_extract'),
+      copy('loading_score'),
+      copy('loading_summary')
+    ][i];
   });
   document.getElementById('nego-section').style.display = 'block';
   document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' });
@@ -1387,40 +2812,20 @@ function translateTo(targetLang) {
   document.getElementById('loading-state').style.display = 'block';
   document.getElementById('results-area').style.display = 'none';
   
-  const langName = LANGUAGES[targetLang].name;
-  const promise = fetch('http://localhost:5000/api/translate', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      results: results,
-      target_language: targetLang,
-      language_name: langName
-    })
-  });
-  
-  // Use local translation as fallback if API not available
-  promise.catch(() => {
-    translateResultsLocally(results, targetLang);
-  }).then(res => {
-    if (res && res.ok) {
-      return res.json();
-    }
-    throw new Error('Translation API error');
-  }).then(translatedResults => {
+  translateAnalysisForLanguage(results, targetLang).then(translatedResults => {
+    currentLanguage = targetLang;
+    localStorage.setItem('selectedLanguage', targetLang);
+    document.getElementById('lang-toggle').textContent = LANGUAGES[targetLang].flag + ' ' + LANGUAGES[targetLang].name;
+    applyLanguage();
     document.getElementById('loading-state').style.display = 'none';
-    renderResults(translatedResults);
-  }).catch(() => {
-    document.getElementById('loading-state').style.display = 'none';
-    alert('Translation feature coming soon! Document available in: English, Spanish, French, German, Chinese, Japanese, Arabic, Hindi, Portuguese, Korean');
+    renderResults(translatedResults, { preserveRaw: true });
   });
 }
 
-function translateResultsLocally(results, targetLang) {
-  // Basic local translation - in production, use Claude API via backend
-  const translated = { ...results };
-  if (TRANSLATIONS[targetLang]) {
-    // Show translated interface
-    alert(`Document translated to ${LANGUAGES[targetLang].name}. In production, this uses AI translation with full context preservation.`);
+function translateResultsLocally(results, targetLang, options = {}) {
+  const translated = localizeAnalyzerResults(results, targetLang);
+  if (!options.silent && TRANSLATIONS[targetLang]) {
+    alert(`Document translated to ${LANGUAGES[targetLang].name}.`);
   }
   return translated;
 }
