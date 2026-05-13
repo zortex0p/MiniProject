@@ -668,6 +668,7 @@
       <button class="lang-option" onclick="setLanguage('ja')">🇯🇵 日本語</button>
       <button class="lang-option" onclick="setLanguage('ar')">🇸🇦 العربية</button>
       <button class="lang-option" onclick="setLanguage('hi')">🇮🇳 हिन्दी</button>
+      <button class="lang-option" onclick="setLanguage('kn')">🇮🇳 ಕನ್ನಡ</button>
       <button class="lang-option" onclick="setLanguage('pt')">🇵🇹 Português</button>
       <button class="lang-option" onclick="setLanguage('ko')">🇰🇷 한국어</button>
     </div>
@@ -908,6 +909,7 @@
         <button class="translation-lang-option" onclick="translateTo('ja')">🇯🇵 Japanese</button>
         <button class="translation-lang-option" onclick="translateTo('ar')">🇸🇦 Arabic</button>
         <button class="translation-lang-option" onclick="translateTo('hi')">🇮🇳 Hindi</button>
+        <button class="translation-lang-option" onclick="translateTo('kn')">🇮🇳 Kannada</button>
         <button class="translation-lang-option" onclick="translateTo('pt')">🇵🇹 Portuguese</button>
         <button class="translation-lang-option" onclick="translateTo('ko')">🇰🇷 Korean</button>
       </div>
@@ -948,6 +950,7 @@ const LANGUAGES = {
   ja: { name: '日本語', flag: '🇯🇵' },
   ar: { name: 'العربية', flag: '🇸🇦' },
   hi: { name: 'हिन्दी', flag: '🇮🇳' },
+  kn: { name: 'ಕನ್ನಡ', flag: '🇮🇳' },
   pt: { name: 'Português', flag: '🇵🇹' },
   ko: { name: '한국어', flag: '🇰🇷' }
 };
@@ -1056,6 +1059,19 @@ const TRANSLATIONS = {
     'high_risk': 'उच्च जोखिम वाले खंड',
     'medium_risk': 'मध्यम जोखिम',
     'low_risk': 'सुरक्षित खंड'
+  },
+  kn: {
+    'analyze': 'ಕನ್ನಡದಲ್ಲಿ ದಾಖಲೆ ವಿಶ್ಲೇಷಿಸಿ',
+    'paste': 'ಪಠ್ಯವನ್ನು ಅಂಟಿಸಿ',
+    'upload': 'ಫೈಲ್ ಅಪ್ಲೋಡ್ ಮಾಡಿ',
+    'sample': 'ಉದಾಹರಣೆಯನ್ನು ಪ್ರಯತ್ನಿಸಿ:',
+    'translate': 'ದಾಖಲೆಯನ್ನು ಅನುವಾದಿಸಿ',
+    'summary': 'ಒಟ್ಟಾರೆ ಸಾರಾಂಶ',
+    'tips': 'ಮಾತುಕತೆ ಸಲಹೆಗಳು',
+    'clauses': 'ಕ್ಲಾಸ್-ಪ್ರಕಾರ ವಿಶ್ಲೇಷಣೆ',
+    'high_risk': 'ಹೆಚ್ಚಿನ ಅಪಾಯದ ಕ್ಲಾಸ್‌ಗಳು',
+    'medium_risk': 'ಮಧ್ಯಮ ಅಪಾಯ',
+    'low_risk': 'ಸುರಕ್ಷಿತ ಕ್ಲಾಸ್‌ಗಳು'
   },
   pt: {
     'analyze': 'Analisar Documento',
@@ -1336,7 +1352,7 @@ const UI_COPY = {
   }
 };
 
-['de', 'zh', 'ja', 'ar', 'hi', 'pt', 'ko'].forEach(lang => {
+['de', 'zh', 'ja', 'ar', 'hi', 'kn', 'pt', 'ko'].forEach(lang => {
   UI_COPY[lang] = { ...UI_COPY.en, ...TRANSLATIONS[lang] };
 });
 
@@ -1915,6 +1931,89 @@ Object.entries(FULL_LANGUAGE_COPY).forEach(([lang, values]) => {
   Object.assign(UI_COPY[lang], values);
 });
 
+Object.assign(UI_COPY.kn, {
+  nav_features: 'ವೈಶಿಷ್ಟ್ಯಗಳು',
+  nav_how: 'ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ',
+  nav_analyzer: 'ವಿಶ್ಲೇಷಕ',
+  nav_tech: 'ತಂತ್ರಜ್ಞಾನ',
+  nav_cta: 'ಉಚಿತವಾಗಿ ಪ್ರಯತ್ನಿಸಿ ->',
+  hero_title: '<em>ಯಾವುದೇ</em> ಕಾನೂನು ದಾಖಲೆವನ್ನು ಕೆಲವು ಕ್ಷಣಗಳಲ್ಲಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ',
+  hero_subtitle: 'ಒಪ್ಪಂದಗಳು, ಬಾಡಿಗೆ ಒಪ್ಪಂದಗಳು ಅಥವಾ ಸೇವಾ ನಿಯಮಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ ಮತ್ತು ತಕ್ಷಣ ಸರಳ ವಿವರಣೆಗಳು ಹಾಗೂ ಅಪಾಯ ಸೂಚನೆಗಳನ್ನು ಪಡೆಯಿರಿ.',
+  hero_primary: 'ದಾಖಲೆಯನ್ನು ವಿಶ್ಲೇಷಿಸಿ ->',
+  hero_secondary: 'ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ ನೋಡಿ',
+  stat_accuracy: 'ಕ್ಲಾಸ್ ಗುರುತಿಸುವ ನಿಖರತೆ',
+  stat_time: 'ಸರಾಸರಿ ವಿಶ್ಲೇಷಣೆ ಸಮಯ',
+  stat_types: 'ಬೆಂಬಲಿತ ದಾಖಲೆ ಪ್ರಕಾರಗಳು',
+  features_label: 'ನಾವು ಮಾಡುವದು',
+  features_title: 'ಆತ್ಮವಿಶ್ವಾಸದಿಂದ ಸಹಿ ಮಾಡಲು ಬೇಕಾದ<br>ಎಲ್ಲವೂ',
+  features_subtitle: 'ಅನೇಕರು ಅರ್ಥವಾಗದ ದಾಖಲೆಗಳಿಗೆ ಸಹಿ ಮಾಡುತ್ತಾರೆ. LexPlain ಅದನ್ನು ತಕ್ಷಣ ಸರಳಗೊಳಿಸುತ್ತದೆ.',
+  feature_clause_title: 'ಕ್ಲಾಸ್ ಗುರುತಿಸುವಿಕೆ',
+  feature_clause_body: 'ಅಂತ್ಯ, ಹೊಣೆಗಾರಿಕೆ, ಪಾವತಿ, ಸ್ಪರ್ಧೆ-ನಿಷೇಧ, ಮಧ್ಯಸ್ಥಿಕೆ, ಡೇಟಾ ಹಕ್ಕುಗಳು ಮತ್ತು ಇನ್ನಷ್ಟು ಪ್ರಮುಖ ಕ್ಲಾಸ್‌ಗಳನ್ನು ಸ್ವಯಂ ಪತ್ತೆಹಚ್ಚುತ್ತದೆ.',
+  feature_plain_title: 'ಸರಳ ಕನ್ನಡ ವಿವರಣೆ',
+  feature_plain_body: 'ಪ್ರತಿ ಕಠಿಣ ಕ್ಲಾಸ್ ಅನ್ನು ನೀವು ಒಪ್ಪುತ್ತಿರುವುದನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸುಲಭವಾಗುವ ಭಾಷೆಯಲ್ಲಿ ಮರುಬರೆಯಲಾಗುತ್ತದೆ.',
+  feature_risk_title: 'ಅಪಾಯ ಸೂಚನೆಗಳು',
+  feature_risk_body: 'ಪ್ರತಿ ಕ್ಲಾಸ್‌ಗೆ ಅದು ನಿಮಗೆ ಎಷ್ಟು ಅನುಕೂಲಕರವೋ ಅದರ ಆಧಾರದಲ್ಲಿ ಹೆಚ್ಚಿನ, ಮಧ್ಯಮ ಅಥವಾ ಕಡಿಮೆ ಅಪಾಯದ ಅಂಕ ನೀಡಲಾಗುತ್ತದೆ.',
+  feature_score_title: 'ಅನುಕೂಲತೆ ಅಂಕ',
+  feature_score_body: '0 ರಿಂದ 100 ರವರೆಗಿನ ಅಂಕ ಈ ದಾಖಲೆ ನಿಮ್ಮ ಪರ ಎಷ್ಟು ಸಮತೋಲನದಲ್ಲಿದೆ ಎಂಬುದನ್ನು ತಕ್ಷಣ ತೋರಿಸುತ್ತದೆ.',
+  feature_tips_title: 'ಮಾತುಕತೆ ಸಲಹೆಗಳು',
+  feature_tips_body: 'ಯಾವ ಕ್ಲಾಸ್‌ಗಳ ಬಗ್ಗೆ ಮಾತಾಡಬೇಕು ಮತ್ತು ಮಾತುಕತೆಯನ್ನು ಹೇಗೆ ಆರಂಭಿಸಬೇಕು ಎಂಬುದರ ಸ್ಪಷ್ಟ ಸಲಹೆಗಳು.',
+  feature_instant_title: 'ತಕ್ಷಣದ ವಿಶ್ಲೇಷಣೆ',
+  feature_instant_body: 'ಸೈನ್ ಅಪ್ ಬೇಡ. ಪಠ್ಯವನ್ನು ಅಂಟಿಸಿ ಅಥವಾ ಫೈಲ್ ಅಪ್ಲೋಡ್ ಮಾಡಿ ಮತ್ತು ಕೆಲವೇ ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಫಲಿತಾಂಶ ಪಡೆಯಿರಿ.',
+  process_label: 'ಪ್ರಕ್ರಿಯೆ',
+  process_title: 'ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ',
+  process_subtitle: 'ಅಪ್ಲೋಡ್‌ನಿಂದ ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವವರೆಗೆ ಮೂರು ಸುಲಭ ಹಂತಗಳು.',
+  step1_title: 'ಅಪ್ಲೋಡ್ ಮಾಡಿ ಅಥವಾ ಅಂಟಿಸಿ',
+  step1_body: 'PDF, DOCX ಅಪ್ಲೋಡ್ ಮಾಡಿ ಅಥವಾ ಯಾವುದೇ ಒಪ್ಪಂದದ ಪಠ್ಯವನ್ನು ನೇರವಾಗಿ ವಿಶ್ಲೇಷಕದಲ್ಲಿ ಅಂಟಿಸಿ.',
+  step2_title: 'AI ವಿಶ್ಲೇಷಣೆ',
+  step2_body: 'ನಮ್ಮ ಮಾದರಿ ಕ್ಲಾಸ್‌ಗಳನ್ನು ಗುರುತಿಸಿ ಪ್ರತಿಯೊಂದಕ್ಕೂ ಅಪಾಯ ಅಂಕ ನೀಡುತ್ತದೆ.',
+  step3_title: 'ವರದಿ ಓದಿ',
+  step3_body: 'ಅಪಾಯ ಅಂಕಗಳು, ಸರಳ ಸಾರಾಂಶಗಳು ಮತ್ತು ಮಾತುಕತೆ ಸಲಹೆಗಳೊಂದಿಗೆ ಸಂಪೂರ್ಣ ವರದಿಯನ್ನು ಪಡೆಯಿರಿ.',
+  step4_title: 'ಆತ್ಮವಿಶ್ವಾಸದಿಂದ ಸಹಿ ಮಾಡಿ',
+  step4_body: 'ನೀವು ಏನಿಗೆ ಒಪ್ಪುತ್ತೀರಿ ಎಂಬುದನ್ನು ಸ್ಪಷ್ಟವಾಗಿ ತಿಳಿದುಕೊಳ್ಳಿ.',
+  demo_label: 'ಲೈವ್ ಡೆಮೊ',
+  analyzer_title: 'ನಿಮ್ಮ ದಾಖಲೆಯನ್ನು ವಿಶ್ಲೇಷಿಸಿ',
+  analyzer_subtitle: 'ಯಾವುದೇ ಒಪ್ಪಂದ ಪಠ್ಯವನ್ನು ಕೆಳಗೆ ಅಂಟಿಸಿ ಮತ್ತು ವಿಶ್ಲೇಷಣೆ ಪ್ರಾರಂಭಿಸಿ. ಉದಾಹರಣೆಗಳನ್ನು ಪ್ರಯತ್ನಿಸಿಯೂ ನೋಡಬಹುದು.',
+  app_title: 'LexPlain ವಿಶ್ಲೇಷಕ',
+  app_subtitle: 'ಕಾನೂನು ಪಠ್ಯ ವಿಶ್ಲೇಷಣೆಯಿಂದ ಚಾಲಿತ',
+  placeholder: 'ನಿಮ್ಮ ಬಾಡಿಗೆ ಒಪ್ಪಂದ, ಸೇವಾ ನಿಯಮಗಳು, ಉದ್ಯೋಗ ಒಪ್ಪಂದ ಅಥವಾ ಯಾವುದೇ ಕಾನೂನು ದಾಖಲೆ ಪಠ್ಯವನ್ನು ಇಲ್ಲಿ ಅಂಟಿಸಿ...',
+  sample_rental: 'ಬಾಡಿಗೆ ಒಪ್ಪಂದ',
+  sample_employment: 'ಉದ್ಯೋಗ ಒಪ್ಪಂದ',
+  sample_tos: 'ಸೇವಾ ನಿಯಮಗಳು',
+  sample_nda: 'ರಹಸ್ಯತಾ ಒಪ್ಪಂದ',
+  upload_title: 'ನಿಮ್ಮ ಒಪ್ಪಂದವನ್ನು ಇಲ್ಲಿ ಬಿಡಿ',
+  upload_body: '10MB ವರೆಗೆ PDF, DOCX, TXT ಫೈಲ್‌ಗಳಿಗೆ ಬೆಂಬಲ',
+  choose_file: 'ಫೈಲ್ ಆಯ್ಕೆ ಮಾಡಿ',
+  loading_title: 'ನಿಮ್ಮ ದಾಖಲೆಯನ್ನು ವಿಶ್ಲೇಷಿಸಲಾಗುತ್ತಿದೆ...',
+  loading_body: 'ಕ್ಲಾಸ್‌ಗಳನ್ನು ಹೊರತೆಗೆದು, ಅಪಾಯ ಅಂಕಗಳನ್ನು ಲೆಕ್ಕ ಹಾಕಿ, ಸರಳ ಸಾರಾಂಶಗಳನ್ನು ಸೃಷ್ಟಿಸಲಾಗುತ್ತಿದೆ',
+  loading_parse: 'ಪಠ್ಯ ಓದುತ್ತಿದೆ',
+  loading_extract: 'ಕ್ಲಾಸ್‌ಗಳನ್ನು ಹೊರತೆಗೆದುಕೊಳ್ಳುತ್ತಿದೆ',
+  loading_score: 'ಅಪಾಯ ಅಂಕಗಳನ್ನು ಲೆಕ್ಕ ಹಾಕುತ್ತಿದೆ',
+  loading_summary: 'ಸಾರಾಂಶಗಳನ್ನು ಸೃಷ್ಟಿಸುತ್ತಿದೆ',
+  score_pending: 'ವಿಶ್ಲೇಷಿಸಲಾಗುತ್ತಿದೆ...',
+  score_suffix: '/ 100',
+  high_risk: 'ಹೆಚ್ಚಿನ ಅಪಾಯದ ಕ್ಲಾಸ್‌ಗಳು',
+  medium_risk: 'ಮಧ್ಯಮ ಅಪಾಯ',
+  low_risk: 'ಸುರಕ್ಷಿತ ಕ್ಲಾಸ್‌ಗಳು',
+  clauses: 'ಕ್ಲಾಸ್-ಪ್ರಕಾರ ವಿಶ್ಲೇಷಣೆ',
+  summary: 'ಒಟ್ಟಾರೆ ಸಾರಾಂಶ',
+  tips: 'ಮಾತುಕತೆ ಸಲಹೆಗಳು',
+  export: 'ವರದಿ ಎಕ್ಸ್ಪೋರ್ಟ್ ಮಾಡಿ',
+  translate_other: 'ಬೇರೆ ಭಾಷೆಗೆ ಅನುವಾದಿಸಿ',
+  analyze_another: 'ಮತ್ತೊಂದು ದಾಖಲೆಯನ್ನು ವಿಶ್ಲೇಷಿಸಿ',
+  share: 'ಫಲಿತಾಂಶಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ',
+  translate_modal_title: 'ದಾಖಲೆ ಫಲಿತಾಂಶಗಳನ್ನು ಅನುವಾದಿಸಿ',
+  translate_modal_body: 'ಎಲ್ಲಾ ವಿಶ್ಲೇಷಣಾ ಫಲಿತಾಂಶಗಳು ಮತ್ತು ಕ್ಲಾಸ್‌ಗಳನ್ನು ಅನುವಾದಿಸಲು ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ:',
+  cancel: 'ರದ್ದುಮಾಡಿ',
+  cta_title: 'ಅರ್ಥವಾಗದದ್ದಕ್ಕೆ ಸಹಿ ಮಾಡಬೇಡಿ',
+  cta_body: 'LexPlain ಕಾನೂನು ಅರಿವನ್ನು ಎಲ್ಲರಿಗೂ ಸುಲಭಗೊಳಿಸುತ್ತದೆ.',
+  cta_button: 'ನಿಮ್ಮ ದಾಖಲೆಯನ್ನು ವಿಶ್ಲೇಷಿಸಿ ->',
+  footer_text: 'ಕಾನೂನು ದಾಖಲೆ ಸರಳೀಕರಣ',
+  risk_high_badge: 'ಹೆಚ್ಚಿನ ಅಪಾಯ',
+  risk_medium_badge: 'ಮಧ್ಯಮ ಅಪಾಯ',
+  risk_low_badge: 'ಕಡಿಮೆ ಅಪಾಯ',
+  file_selected: 'ಆಯ್ಕೆಯಾಗಿದೆ:'
+});
+
 const ANALYZER_RESULT_COPY = {
   en: {
     scoreGood: 'Favorable document',
@@ -2106,6 +2205,26 @@ const ANALYZER_RESULT_COPY = {
       '최종 서명 문서의 사본을 보관하세요.'
     ]
   }
+};
+
+ANALYZER_RESULT_COPY.kn = {
+  scoreGood: 'ಅನುಕೂಲಕರ ದಾಖಲೆ',
+  scoreMedium: 'ಸಹಿ ಮಾಡುವ ಮೊದಲು ಪರಿಶೀಲಿಸಿ',
+  scoreLow: 'ಅತಿಯಾದ ಜಾಗ್ರತೆ ಅಗತ್ಯ',
+  descGood: 'ಹೆಚ್ಚಿನ ಕ್ಲಾಸ್‌ಗಳು ಸಮತೋಲನದಲ್ಲಿರುವಂತೆ ಕಾಣುತ್ತವೆ, ಆದರೆ ಸಹಿ ಮಾಡುವ ಮೊದಲು ವಿವರಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.',
+  descMedium: 'ಕೆಲವು ಕ್ಲಾಸ್‌ಗಳು ಇನ್ನೊಂದು ಪಕ್ಷಕ್ಕೆ ಹೆಚ್ಚು ಅನುಕೂಲಕರವಾಗಿರಬಹುದು. ಗುರುತಿಸಲಾದ ನಿಯಮಗಳ ಬಗ್ಗೆ ಮಾತುಕತೆ ನಡೆಸಿ.',
+  descLow: 'ಅನೇಕ ಕ್ಲಾಸ್‌ಗಳು ಅಪಾಯಕಾರಿಯಾಗಿರಬಹುದು. ಸಹಿ ಮಾಡುವ ಮೊದಲು ಸ್ಪಷ್ಟೀಕರಣ ಅಥವಾ ಕಾನೂನು ಸಲಹೆ ಪಡೆಯಿರಿ.',
+  summary: (high, medium, low, total) => `ಈ ದಾಖಲೆಯಲ್ಲಿ ${total} ಪ್ರಮುಖ ಕ್ಲಾಸ್(ಗಳು) ಇವೆ: ${high} ಹೆಚ್ಚಿನ ಅಪಾಯ, ${medium} ಮಧ್ಯಮ ಅಪಾಯ ಮತ್ತು ${low} ಕಡಿಮೆ ಅಪಾಯ. ಸಹಿ ಮಾಡುವ ಮೊದಲು ಹೆಚ್ಚಿನ ಅಪಾಯದ ಕ್ಲಾಸ್‌ಗಳನ್ನು ಮೊದಲು ನೋಡಿ.`,
+  clauseTitle: (index, risk) => `ಕ್ಲಾಸ್ ${index} - ${risk} ಅಪಾಯ`,
+  clausePlain: risk => `ಈ ಕ್ಲಾಸ್ ಅನ್ನು ${risk} ಅಪಾಯ ಎಂದು ಗುರುತಿಸಲಾಗಿದೆ. ಮೂಲ ಪಠ್ಯವನ್ನು ಎಚ್ಚರಿಕೆಯಿಂದ ಓದಿ ಮತ್ತು ಸಹಿ ಮಾಡುವ ಮೊದಲು ಅದರಲ್ಲಿರುವ ಬಾಧ್ಯತೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.`,
+  tipHigh: 'ಸಹಿ ಮಾಡುವ ಮೊದಲು ಈ ಕ್ಲಾಸ್ ಅನ್ನು ಬದಲಾಯಿಸಲು ಅಥವಾ ತೆಗೆದುಹಾಕಲು ಕೇಳಿ.',
+  tipMedium: 'ಸ್ಪಷ್ಟೀಕರಣ ಕೇಳಿ ಮತ್ತು ಹೆಚ್ಚು ಸಮತೋಲನದ ಆವೃತ್ತಿಗಾಗಿ ಮಾತುಕತೆ ನಡೆಸಿ.',
+  tipLow: '',
+  tips: [
+    'ಸಹಿ ಮಾಡುವ ಮೊದಲು ಪ್ರತಿಯೊಂದು ಹೆಚ್ಚಿನ ಅಪಾಯದ ಕ್ಲಾಸ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ.',
+    'ಅಸ್ಪಷ್ಟ ಬಾಧ್ಯತೆಗಳ ಬಗ್ಗೆ ಲಿಖಿತ ವಿವರಣೆ ಕೇಳಿ.',
+    'ಅಂತಿಮವಾಗಿ ಸಹಿ ಮಾಡಿದ ದಾಖಲೆಯ ಒಂದು ಪ್ರತಿಯನ್ನು ಉಳಿಸಿಕೊಳ್ಳಿ.'
+  ]
 };
 
 function copy(key) {
@@ -2516,6 +2635,53 @@ STRAFEN: Jeder Verstoss kann pauschalen Schadenersatz von 50.000 $ plus Anwaltsk
   }
 };
 
+SAMPLE_DOCUMENT_COPY.kn = {
+  rental: `ವಸತಿ ಬಾಡಿಗೆ ಒಪ್ಪಂದ
+
+PAYMENT / ಪಾವತಿ: ಬಾಡಿಗಾರನು ಪ್ರತಿ ತಿಂಗಳ 1ನೇ ತಾರೀಖಿನೊಳಗೆ $1,800 ಬಾಡಿಗೆ ಪಾವತಿಸಬೇಕು. 5ನೇ ತಾರೀಖಿನ ನಂತರ ಪಾವತಿಸಿದರೆ $150 ತಡ ಶುಲ್ಕ ವಿಧಿಸಲಾಗುತ್ತದೆ.
+
+SECURITY DEPOSIT / ಭದ್ರತಾ ಠೇವಣಿ: ಬಾಡಿಗಾರನು $3,600 ಠೇವಣಿ ಪಾವತಿಸಬೇಕು. ಮಾಲೀಕರು ಬಾಕಿ ಬಾಡಿಗೆ, ಹಾನಿ ಅಥವಾ ಸ್ವಚ್ಛತಾ ವೆಚ್ಚವನ್ನು ಈ ಠೇವಣಿಯಿಂದ ಕಡಿತಗೊಳಿಸಬಹುದು.
+
+TERMINATION / ಮುಕ್ತಾಯ: ಮನೆಯನ್ನು ಖಾಲಿ ಮಾಡುವ ಮೊದಲು 60 ದಿನಗಳ ಲಿಖಿತ ನೋಟಿಸ್ ನೀಡಬೇಕು. ನೋಟಿಸ್ ಇಲ್ಲದೆ ತೆರಳಿದರೆ 2 ತಿಂಗಳ ಹೆಚ್ಚುವರಿ ಬಾಡಿಗೆಯನ್ನು ಪಾವತಿಸಬೇಕಾಗಬಹುದು.
+
+LIABILITY / ಜವಾಬ್ದಾರಿ: ಆಸ್ತಿಯೊಳಗಿನ ಗಾಯ, ನಷ್ಟ ಅಥವಾ ಹಾನಿಗೆ ಮಾಲೀಕರು ಜವಾಬ್ದಾರರಲ್ಲ.
+
+AUTO-RENEWAL / ಸ್ವಯಂ ನವೀಕರಣ: ಬಾಡಿಗಾರನು ಮುಂಚಿತ ಲಿಖಿತ ನೋಟಿಸ್ ನೀಡದಿದ್ದರೆ ಈ ಒಪ್ಪಂದವು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಇನ್ನೊಂದು ಒಂದು ವರ್ಷದ ಅವಧಿಗೆ ನವೀಕರಿಸಲಾಗುತ್ತದೆ.`,
+  employment: `ಉದ್ಯೋಗ ಒಪ್ಪಂದ
+
+NON-COMPETE / ಸ್ಪರ್ಧೆ-ನಿಷೇಧ: ಉದ್ಯೋಗ ಮುಗಿದ ನಂತರ 24 ತಿಂಗಳವರೆಗೆ ಉದ್ಯೋಗಿಯು 100 ಮೈಲಿ ವ್ಯಾಪ್ತಿಯೊಳಗೆ ಯಾವುದೇ ಸ್ಪರ್ಧಿ ಸಂಸ್ಥೆಯಲ್ಲಿ ಕೆಲಸ ಮಾಡಬಾರದು.
+
+INTELLECTUAL PROPERTY / ಬೌದ್ಧಿಕ ಸ್ವತ್ತು: ಉದ್ಯೋಗಿಯು ಕೆಲಸದ ಅವಧಿಯಲ್ಲಿ ಸೃಷ್ಟಿಸುವ ಎಲ್ಲಾ ಕಲ್ಪನೆಗಳು, ಆವಿಷ್ಕಾರಗಳು ಮತ್ತು ಕೆಲಸದ ಫಲಿತಾಂಶಗಳು ಕಂಪನಿಯ ವಿಶೇಷ ಸ್ವತ್ತಾಗಿರುತ್ತವೆ.
+
+ARBITRATION / ಮಧ್ಯಸ್ಥಿಕೆ: ಈ ಒಪ್ಪಂದದಿಂದ ಉಂಟಾಗುವ ಯಾವುದೇ ವಿವಾದವನ್ನು ಕಡ್ಡಾಯ ಮಧ್ಯಸ್ಥಿಕೆಯ ಮೂಲಕ ಮಾತ್ರ ಪರಿಹರಿಸಲಾಗುತ್ತದೆ.
+
+TERMINATION / ಮುಕ್ತಾಯ: ಕಂಪನಿಯು ಯಾವುದೇ ಕಾರಣದಿಂದಲೂ, ನೋಟಿಸ್ ನೀಡಿಯೂ ಅಥವಾ ನೋಟಿಸ್ ಇಲ್ಲದೆಯೂ, ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಉದ್ಯೋಗವನ್ನು ಕೊನೆಗೊಳಿಸಬಹುದು.
+
+CONFIDENTIALITY / ರಹಸ್ಯತೆ: ಉದ್ಯೋಗಿಯು ಉದ್ಯೋಗದ ಅವಧಿಯಲ್ಲಿ ಅಥವಾ ನಂತರ ಯಾವುದೇ ರಹಸ್ಯ ಮಾಹಿತಿಯನ್ನು ಬಹಿರಂಗಪಡಿಸಬಾರದು.`,
+  tos: `ಸೇವಾ ನಿಯಮಗಳು
+
+DATA COLLECTION / ಡೇಟಾ ಸಂಗ್ರಹಣೆ: ನಾವು ನಿಮ್ಮ ಬ್ರೌಸಿಂಗ್, ಸ್ಥಳ, ಸಾಧನ ಗುರುತುಗಳು ಮತ್ತು ಬಳಕೆ ಮಾದರಿಗಳ ಮಾಹಿತಿಯನ್ನು ಸಂಗ್ರಹಿಸಬಹುದು ಮತ್ತು ಪಾಲುದಾರರೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಬಹುದು.
+
+LICENSE / ಪರವಾನಗಿ: ನೀವು ಸಲ್ಲಿಸುವ ವಿಷಯವನ್ನು ಬಳಸಲು, ಬದಲಾಯಿಸಲು ಮತ್ತು ವಿತರಿಸಲು ನಮಗೆ ಶಾಶ್ವತ, ವಿಶ್ವವ್ಯಾಪಿ ಮತ್ತು ಉಚಿತ ಹಕ್ಕು ನೀಡುತ್ತೀರಿ.
+
+ACCOUNT TERMINATION / ಖಾತೆ ಮುಕ್ತಾಯ: ನಾವು ಯಾವುದೇ ನೋಟಿಸ್ ಅಥವಾ ಕಾರಣವಿಲ್ಲದೆ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಸ್ಥಗಿತಗೊಳಿಸಬಹುದು ಅಥವಾ ಮುಕ್ತಾಯಗೊಳಿಸಬಹುದು.
+
+LIABILITY / ಜವಾಬ್ದಾರಿ: ನಿಮ್ಮ ಮೇಲೆ ನಮ್ಮ ಒಟ್ಟು ಜವಾಬ್ದಾರಿ $1.00 ಅನ್ನು ಮೀರದು.
+
+CHANGES TO TERMS / ನಿಯಮ ಬದಲಾವಣೆ: ನಾವು ಈ ನಿಯಮಗಳನ್ನು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಬದಲಾಯಿಸಬಹುದು; ಸೇವೆಯನ್ನು ಮುಂದುವರಿಸುವುದರಿಂದ ನೀವು ಅದನ್ನು ಒಪ್ಪಿಕೊಂಡಂತಾಗುತ್ತದೆ.`,
+  nda: `ರಹಸ್ಯತಾ ಒಪ್ಪಂದ
+
+CONFIDENTIAL INFORMATION / ರಹಸ್ಯ ಮಾಹಿತಿ: ಸ್ವೀಕರಿಸುವ ಪಕ್ಷವು ವ್ಯಾಪಾರ ರಹಸ್ಯಗಳು, ಗ್ರಾಹಕ ಮಾಹಿತಿ ಮತ್ತು ತಾಂತ್ರಿಕ ಮಾಹಿತಿಯನ್ನು ಒಳಗೊಂಡ ಎಲ್ಲಾ ಹಂಚಿಕೊಂಡ ಮಾಹಿತಿಯನ್ನು ರಹಸ್ಯವಾಗಿಡಬೇಕು.
+
+DURATION / ಅವಧಿ: ಈ ರಹಸ್ಯತಾ ಬಾಧ್ಯತೆ 5 ವರ್ಷಗಳವರೆಗೆ ಜಾರಿಯಲ್ಲಿರುತ್ತದೆ; ವ್ಯಾಪಾರ ರಹಸ್ಯಗಳಿಗಾಗಿ ಇದು ಅನಿರ್ದಿಷ್ಟಾವಧಿಯವರೆಗೆ ಮುಂದುವರಿಯಬಹುದು.
+
+NON-SOLICITATION / ಆಕರ್ಷಣೆ-ನಿಷೇಧ: ಒಪ್ಪಂದದ ಅವಧಿಯಲ್ಲಿ ಮತ್ತು ಅದಾದ ನಂತರ 2 ವರ್ಷಗಳವರೆಗೆ, ಸ್ವೀಕರಿಸುವ ಪಕ್ಷವು ಇನ್ನೊಂದು ಪಕ್ಷದ ಉದ್ಯೋಗಿಗಳನ್ನು ನೇಮಿಸಬಾರದು.
+
+INJUNCTIVE RELIEF / ನ್ಯಾಯಾಲಯದ ತಡೆ ಆದೇಶ: ಉಲ್ಲಂಘನೆ ಸರಿಪಡಿಸಲಾಗದ ಹಾನಿಯನ್ನುಂಟುಮಾಡಬಹುದು ಮತ್ತು ನ್ಯಾಯಾಲಯದ ಪರಿಹಾರಕ್ಕೆ ಅವಕಾಶ ನೀಡಬಹುದು.
+
+PENALTIES / ದಂಡ: ಪ್ರತಿಯೊಂದು ಉಲ್ಲಂಘನೆಗೂ $50,000 ಮತ್ತು ಕಾನೂನು ವೆಚ್ಚಗಳನ್ನು ಪಾವತಿಸಬೇಕಾಗಬಹುದು.`
+};
+
 ['pt', 'zh', 'ja', 'ar', 'ko'].forEach(lang => {
   SAMPLE_DOCUMENT_COPY[lang] = {
     rental: `${UI_COPY[lang].sample_rental}\n\n${UI_COPY[lang].high_risk}: ${ANALYZER_RESULT_COPY[lang].tipHigh}\n\n${UI_COPY[lang].medium_risk}: ${ANALYZER_RESULT_COPY[lang].tipMedium}\n\n${UI_COPY[lang].summary}: ${ANALYZER_RESULT_COPY[lang].summary(2, 2, 1, 5)}`,
@@ -2547,6 +2713,7 @@ function handleFile(input) {
   const file = input.files[0];
   if (!file) return;
   window.currentSampleKey = null;
+  window.uploadedFile = file;
   document.getElementById('file-name').textContent = copy('file_selected') + ' ' + file.name;
   if (file.type === 'text/plain') {
     const reader = new FileReader();
@@ -2559,16 +2726,29 @@ function handleFile(input) {
 }
 
 async function analyzeDocument() {
+  const isUploadTabActive = document.getElementById('tab-upload').classList.contains('active');
+  const selectedFile = document.getElementById('file-input').files[0] || window.uploadedFile || null;
   const text = document.getElementById('contract-text').value.trim();
-  if (!text || text.length < 30) {
-    alert('Please paste some contract text or load a sample to analyze.');
-    return;
+  if (isUploadTabActive) {
+    if (!selectedFile) {
+      alert('Please upload a PDF file to analyze.');
+      return;
+    }
+    const fileName = (selectedFile.name || '').toLowerCase();
+    if (!fileName.endsWith('.pdf')) {
+      alert('Please upload a PDF file. PDF analysis is supported via backend upload.');
+      return;
+    }
+  } else {
+    if (!text || text.length < 30) {
+      alert('Please paste some contract text or load a sample to analyze.');
+      return;
+    }
   }
   
-  // API URL - Update with your Render backend URL for production
-  const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:5000/api/simplify'
-    : 'https://lexplain-api.onrender.com/api/simplify'; // UPDATE THIS with your Render URL
+  const apiBaseUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:5000/api'
+    : 'https://lexplain-api.onrender.com/api';
   
   document.getElementById('input-area').style.display = 'none';
   document.getElementById('loading-state').style.display = 'block';
@@ -2586,15 +2766,25 @@ async function analyzeDocument() {
   }, 1200);
 
   try {
-    const res = await fetch(apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        text: text,
-        target_language: currentLanguage,
-        language_name: LANGUAGES[currentLanguage].name
-      })
-    });
+    let res;
+    if (isUploadTabActive) {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      res = await fetch(`${apiBaseUrl}/upload-pdf`, {
+        method: 'POST',
+        body: formData
+      });
+    } else {
+      res = await fetch(`${apiBaseUrl}/simplify`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: text,
+          target_language: currentLanguage,
+          language_name: LANGUAGES[currentLanguage].name
+        })
+      });
+    }
     clearInterval(stepInterval);
     
     if (!res.ok) {
@@ -2744,7 +2934,9 @@ function renderResults(r, options = {}) {
 
 function resetApp() {
   document.getElementById('contract-text').value = '';
+  document.getElementById('file-input').value = '';
   document.getElementById('file-name').textContent = '';
+  window.uploadedFile = null;
   document.getElementById('results-area').style.display = 'none';
   document.getElementById('loading-state').style.display = 'none';
   document.getElementById('input-area').style.display = 'block';

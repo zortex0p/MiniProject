@@ -46,8 +46,13 @@ CORS(app)
 app.config['JSON_SORT_KEYS'] = False
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 
-# Initialize Anthropic client
-anthropic_client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+# Initialize Anthropic client only when a real key is configured
+anthropic_api_key = os.getenv('ANTHROPIC_API_KEY', '').strip()
+if anthropic_api_key and anthropic_api_key.lower() != 'placeholder':
+    anthropic_client = anthropic.Anthropic(api_key=anthropic_api_key)
+else:
+    anthropic_client = None
+    logger.warning("ANTHROPIC_API_KEY missing/placeholder. Using local fallback explanations.")
 
 # Database setup
 DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///legal_documents.db')
@@ -101,15 +106,15 @@ legal_bert_pipeline = load_legal_bert_model()
 
 # Legal clause patterns for fallback extraction
 CLAUSE_PATTERNS = {
-    'TERMINATION': r'(?i)(termination|end\s+of|cease|discontinue|cancel)',
-    'LIABILITY': r'(?i)(liability|liable|damage|indemnif|warrant)',
-    'PAYMENT': r'(?i)(payment|pay|fee|price|cost|rent|compensation)',
-    'NON-COMPETE': r'(?i)(non[- ]?compet|compete|competitor|exclusiv)',
-    'CONFIDENTIALITY': r'(?i)(confidential|secret|proprietary|disclosure)',
-    'ARBITRATION': r'(?i)(arbitrat|dispute|mediat|resolution)',
-    'AUTO-RENEWAL': r'(?i)(auto[- ]?renewal|automatic|renew|extend)',
-    'INTELLECTUAL PROPERTY': r'(?i)(intellectual\s+property|patent|copyright|ownership|rights)',
-    'DATA/PRIVACY': r'(?i)(data|privacy|personal|information|gdpr|ccpa)',
+    'TERMINATION': r'(?i)(termination|end\s+of|cease|discontinue|cancel|terminate|ಅಂತ್ಯ|ರದ್ದು|ಮುಕ್ತಾಯ|ಕೊನೆಗೊಳ)',
+    'LIABILITY': r'(?i)(liability|liable|damage|indemnif|warrant|ಜವಾಬ್ದಾರಿ|ಹೊಣೆ|ನಷ್ಟ|ಹಾನಿ)',
+    'PAYMENT': r'(?i)(payment|pay|fee|price|cost|rent|compensation|ಪಾವತಿ|ಶುಲ್ಕ|ಬೆಲೆ|ಬಾಡಿಗೆ|ವೇತನ)',
+    'NON-COMPETE': r'(?i)(non[- ]?compet|compete|competitor|exclusiv|ಸ್ಪರ್ಧೆ|ಪ್ರತಿಸ್ಪರ್ಧಿ|ನಿಷೇಧ)',
+    'CONFIDENTIALITY': r'(?i)(confidential|secret|proprietary|disclosure|ರಹಸ್ಯ|ಗೌಪ್ಯ|ಬಹಿರಂಗಪಡ)',
+    'ARBITRATION': r'(?i)(arbitrat|dispute|mediat|resolution|ಮಧ್ಯಸ್ಥ|ವಿವಾದ|ಪರಿಹಾರ)',
+    'AUTO-RENEWAL': r'(?i)(auto[- ]?renewal|automatic|renew|extend|ಸ್ವಯಂ|ನವೀಕರಣ|ವಿಸ್ತರ)',
+    'INTELLECTUAL PROPERTY': r'(?i)(intellectual\s+property|patent|copyright|ownership|rights|ಬೌದ್ಧಿಕ\s+ಸ್ವತ್ತು|ಮಾಲೀಕತ್ವ|ಹಕ್ಕುಗಳು)',
+    'DATA/PRIVACY': r'(?i)(data|privacy|personal|information|gdpr|ccpa|ಡೇಟಾ|ಗೌಪ್ಯತೆ|ವೈಯಕ್ತಿಕ|ಮಾಹಿತಿ)',
     'FORCE MAJEURE': r'(?i)(force\s+majeure|unforeseeable|act\s+of\s+god)',
 }
 
@@ -347,9 +352,13 @@ def extract_clauses(text):
             for chunk in chunks:
                 entities = legal_bert_pipeline(chunk[:512])  # Process first 512 chars per chunk
                 for entity in entities:
+                    entity_group = entity.get('entity_group', '')
+                    # Ignore generic training labels (e.g. LABEL_0) and use fallback extractor instead.
+                    if re.match(r'^LABEL_\d+$', entity_group):
+                        continue
                     if entity['score'] > 0.5:
                         clauses.append({
-                            'type': entity['entity_group'],
+                            'type': entity_group,
                             'text': entity['word'],
                             'confidence': entity['score']
                         })
@@ -400,7 +409,27 @@ def enrich_clauses_with_ai(clauses, full_text):
         if clause_type not in clause_types:
             clause_types[clause_type] = clause
     
+    use_ai = anthropic_client is not None
+
     for clause_type, clause in clause_types.items():
+        if not use_ai:
+            risk_level = 'medium'
+            high_risk_types = ['LIABILITY', 'TERMINATION', 'NON-COMPETE', 'AUTO-RENEWAL', 'ARBITRATION']
+            low_risk_types = ['DATA/PRIVACY']
+            if clause_type in high_risk_types:
+                risk_level = 'high'
+            elif clause_type in low_risk_types:
+                risk_level = 'low'
+
+            enriched_clauses.append({
+                'title': clause_type,
+                'risk': risk_level,
+                'original': clause['text'][:100],
+                'plain': f'This {clause_type.lower()} clause affects your rights and obligations. Read it carefully and consider getting legal advice if uncertain.',
+                'tip': f'Ask for clarification on this {clause_type.lower()} clause or consider negotiating the terms.'
+            })
+            continue
+
         try:
             # Generate explanation and risk score using Claude
             prompt = f"""You are a legal expert helping someone understand what they're signing. 
@@ -541,6 +570,13 @@ def generate_summary_and_tips(text, clauses):
     """
     Generate overall summary and negotiation tips using Claude
     """
+    if anthropic_client is None:
+        return "Document analysis complete. Read this carefully before signing. Review all key terms and any restrictions.", [
+            "Clarify any terms you don't understand",
+            "Get legal review before signing",
+            "Consider negotiating unfavorable terms"
+        ]
+
     try:
         high_risk_count = sum(1 for c in clauses if c.get('risk') == 'high')
         medium_risk_count = sum(1 for c in clauses if c.get('risk') == 'medium')
